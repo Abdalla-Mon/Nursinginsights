@@ -1,10 +1,10 @@
 "use client";
-import { signIn } from "next-auth/react";
+import { handleFacebookSignIn } from "@/lib/auth/facebook/facebook_auth";
 
 function Home() {
   return (
     <div>
-      <button onClick={() => signIn("google")}>Sign in with Google</button>
+      <button onClick={handleFacebookSignIn}>Sign in with facebook</button>
     </div>
   );
 }

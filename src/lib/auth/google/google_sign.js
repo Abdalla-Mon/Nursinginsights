@@ -1,6 +1,4 @@
 import GoogleProvider from "next-auth/providers/google";
-import data from "./google_config.json";
-console.log(data);
 export default NextAuth({
   providers: [
     GoogleProvider({
