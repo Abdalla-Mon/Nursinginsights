@@ -1,22 +1,10 @@
 "use client";
-import { selectAuthState, setAuthState } from "../lib/redux/slices/testSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { signIn } from "next-auth/react";
+
 function Home() {
-  const authState = useSelector(selectAuthState);
-  const dispatch = useDispatch();
   return (
     <div>
-      <div>{authState.authState ? "Logged in" : "Not Logged In"}</div>
-      <button
-        onClick={() =>
-          authState.authState
-            ? dispatch(setAuthState(false))
-            : dispatch(setAuthState(true))
-        }
-      >
-        {authState.authState ? "Logout" : "LogIn"}
-        <div>{authState.num}</div>
-      </button>
+      <button onClick={() => signIn("google")}>Sign in with Google</button>
     </div>
   );
 }
