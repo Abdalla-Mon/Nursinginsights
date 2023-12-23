@@ -1,5 +1,5 @@
 "use client";
-import { selectAuthState, setAuthState } from "../redux/slices/testSlice";
+import { selectAuthState, setAuthState } from "../lib/redux/slices/testSlice";
 import { useDispatch, useSelector } from "react-redux";
 function Home() {
   const authState = useSelector(selectAuthState);
