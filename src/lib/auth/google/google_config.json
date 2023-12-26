@@ -1,0 +1,12 @@
+{
+  "web": {
+    "client_id": "622044934109-ehd98u91enoask4usc7a41iqfnr04ns5.apps.googleusercontent.com",
+    "project_id": "nursing-students-409014",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_secret": "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",
+    "redirect_uris": ["https://nursing-students.vercel.app"],
+    "javascript_origins": ["https://nursing-students.vercel.app"]
+  }
+}
