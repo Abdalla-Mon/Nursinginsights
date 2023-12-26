@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import StoreProvider from "./StorePorvider";
+import Navbar from "./navbar/Navbar";
 
 // const roboto = Roboto({
 //   weight: ["400", "700"],
@@ -41,7 +42,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={cubid.className}>
-        <StoreProvider>{children}</StoreProvider>
+        <StoreProvider>
+          <Navbar />
+          {children}
+        </StoreProvider>
       </body>
     </html>
   );
