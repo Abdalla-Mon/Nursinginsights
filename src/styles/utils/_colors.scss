@@ -1,28 +1,26 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
   --primary_bg: #ffffff;
   --secondary_bg: #f9f9ff;
   --body_text: #6b7385;
   --heading_text: #192335;
+
   --shadow_1: 0px 6px 34px rgba(215, 216, 222, 0.41);
   --shadow_2: 0 15px 34px 0 rgba(175, 181, 204, 0.32);
   --color_primary: #2f57ef;
   --color_primary_opacity: #2f57ef21;
   --color_secondary: #b966e7;
-  --primary_gradient_color_: linear-gradient(
+  --primary_gradient_color: linear-gradient(
     to right,
     var(--color_primary),
     var(--color_secondary),
     var(--color_secondary),
     var(--color_primary)
   );
-  --secondary_gradient_color_: linear-gradient(
+  --secondary_gradient_color: linear-gradient(
     218.15deg,
     var(--color-secondary) 0%,
     var(--color-primary) 100%
   );
-  --teritary_gradient_color_: linear-gradient(90deg, #8da9fc 0%, #b48dd5 100%);
+  --teritary_gradient_color: linear-gradient(90deg, #8da9fc 0%, #b48dd5 100%);
+  --primary_transition: 0.3s;
 }

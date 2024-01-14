@@ -1,0 +1,32 @@
+@mixin circle($dimensions) {
+  border-radius: 50%;
+  width: $dimensions;
+  height: $dimensions;
+}
+
+@mixin centering {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin responsivePadding($small_padding, $padding) {
+  padding: $small_padding;
+  @media (min-width: 992px) {
+    padding: $padding;
+  }
+}
+@mixin border_radius($values) {
+  border-radius: $values;
+  -webkit-border-radius: $values;
+  -moz-border-radius: $values;
+  -ms-border-radius: $values;
+  -o-border-radius: $values;
+}
+@mixin transition_($values) {
+  transition: $values;
+  -webkit-transition: $values;
+  -moz-transition: $values;
+  -ms-transition: $values;
+  -o-transition: $values;
+}

@@ -7,7 +7,16 @@ module.exports = {
   ],
 
   theme: {
-    screens: {},
+    screens: {
+      tab: "768px",
+      // => @media (min-width: 640px) { ... }
+
+      lap: "992px",
+      // => @media (min-width: 1024px) { ... }
+
+      lg: "1280px",
+      // => @media (min-width: 1280px) { ... }
+    },
 
     extend: {},
   },

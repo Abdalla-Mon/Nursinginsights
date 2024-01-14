@@ -1,15 +1,9 @@
 import localFont from "next/font/local";
-import "./globals.css";
+import "../styles/index.css";
 import StoreProvider from "./StorePorvider";
 import Navbar from "./navbar/Navbar";
 
-// const roboto = Roboto({
-//   weight: ["400", "700"],
-//   style: ["normal", "italic"],
-//   subsets: ["latin"],
-//   display: "swap",
-// });
-const cubid = localFont({
+export const cubid = localFont({
   src: [
     {
       path: "./euclid_font/Euclid Circular A Regular.ttf",
@@ -24,7 +18,7 @@ const cubid = localFont({
     {
       path: "./euclid_font/Euclid Circular A Bold.ttf",
       weight: "700",
-      style: "normal",
+      style: "bold",
     },
     {
       path: "./euclid_font/Euclid Circular A Bold Italic.ttf",
@@ -33,7 +27,7 @@ const cubid = localFont({
     },
   ],
 });
-export const metadata = {
+const metadata = {
   title: "Nursing Insights - Empowering Nursing Excellence",
   description:
     "Unlock the path to nursing excellence with NursingInsights – your comprehensive online resource for students and professionals in the field of nursing. Explore enriching lectures, insightful videos, and interactive quizzes designed to elevate your academic journey. Delve into department-specific information, guiding you to excel in every facet of your college experience. Join us in fostering a community committed to the art and science of nursing. Empower your knowledge, embrace your potential, and thrive in the world of healthcare at NursingInsights.",
