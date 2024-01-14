@@ -1,0 +1,7 @@
+@use "../utils/varibales" as *;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.centerd {
+  @include centering;
+}

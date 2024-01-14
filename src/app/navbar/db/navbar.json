@@ -1,0 +1,23 @@
+{
+  "navList": [
+    {
+      "name": "home"
+    },
+    {
+      "name": "courses",
+      "subfields": [
+        "first grade",
+        "second grade",
+        "third grade",
+        "fourth grade"
+      ]
+    },
+    {
+      "name": "nursing care plans",
+      "subfields": ["psychatric", "others"]
+    },
+    {
+      "name": "books"
+    }
+  ]
+}
