@@ -40,7 +40,7 @@
 
 .pc_list {
   width: fit-content;
-  margin: auto;
+  margin: auto !important;
   text-align: center;
   .sub_list {
     border: 1px solid;

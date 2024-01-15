@@ -88,7 +88,7 @@
 .pc_list {
   width: -moz-fit-content;
   width: fit-content;
-  margin: auto;
+  margin: auto !important;
   text-align: center;
 }
 .pc_list .sub_list {
