@@ -1,6 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { authSlice } from "../slices/testSlice";
-import { createWrapper } from "next-redux-wrapper";
+import { authSlice } from "../slices/authSlice";
 
 export const makeStore = configureStore({
   reducer: {

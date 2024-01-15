@@ -1,0 +1,26 @@
+@use "../utils/varibales" as *;
+.primary_btn {
+  background-size: 300% 100%;
+  background-image: linear-gradient(
+    to right,
+    var(--color_primary),
+    var(--color_secondary),
+    var(--color_secondary),
+    var(--color_primary)
+  );
+  color: white;
+  padding: 12px;
+  @include border_radius(6px);
+}
+.login_btn,
+.signup_btn {
+  padding: 8px;
+}
+
+.special_link {
+  color: var(--color_primary);
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}

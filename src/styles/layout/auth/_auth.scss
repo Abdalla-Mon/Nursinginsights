@@ -1,0 +1,19 @@
+@use "../../utils/varibales" as *;
+.auth_layout {
+  background: var(--gradient_1);
+}
+.login_card,
+.signup_card {
+  box-shadow: var(--shadow_1);
+  @include border_radius(10px);
+  padding: 20px 32px;
+  width: 300px;
+  @media (min-width: 768px) {
+    width: 350px;
+    padding: 30px 40px;
+  }
+  @media (min-width: 992px) {
+    width: 400px;
+    padding: 40px 50px;
+  }
+}

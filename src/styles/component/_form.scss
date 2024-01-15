@@ -1,0 +1,43 @@
+@use "../utils/varibales" as *;
+
+.custom-input {
+  width: 100%;
+  label {
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border_color);
+    border-radius: 5px;
+    display: block;
+  }
+  input {
+    width: 100%;
+
+    padding: 6px 12px;
+    outline: none;
+  }
+
+  .eye_icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  .focus_border {
+    background-color: var(--color_primary);
+    bottom: 0;
+    left: 0;
+    height: 1px;
+  }
+}
+.form_error {
+  color: red;
+  font-size: 0.8rem;
+}
+.reset-link {
+  text-decoration: underline;
+  color: var(--color_heading);
+  @include transition_(0.3s);
+  &:hover {
+    color: var(--color_primary);
+  }
+}

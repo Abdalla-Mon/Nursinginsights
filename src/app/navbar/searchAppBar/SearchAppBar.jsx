@@ -13,7 +13,11 @@ import { FaSearch } from "react-icons/fa";
 import { RxAvatar } from "react-icons/rx";
 import NavList from "../component/navlist/NavList";
 import Link from "next/link";
+import { use_dispatch, use_selector } from "@/lib/redux/hooks/hooks";
+import { handleLogOut } from "@/lib/auth/handleUser/logout";
+import { useRouter } from "next/navigation";
 export default function SearchAppBar() {
+  const { authState } = use_selector((state) => state.auth);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const menuId = "primary-search-account-menu";
 
@@ -25,8 +29,13 @@ export default function SearchAppBar() {
     setState({ ...state, [anchor]: open });
   };
 
+  const router = useRouter();
+
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
+    if (!authState) {
+      router.push("/login"); // Redirect to the login page
+    }
   };
 
   return (
@@ -37,7 +46,7 @@ export default function SearchAppBar() {
       >
         <Drawer toggleDrawer={toggleDrawer} state={state} />
         <Toolbar>
-          <Link href={""}>
+          <Link href={"/"}>
             <Image
               src="/logo_black_text.png"
               alt="Nursing Insights"
@@ -68,8 +77,6 @@ export default function SearchAppBar() {
               color="inherit"
             >
               <RxAvatar />
-
-              {/* <Image alt="vercel" src="/vercel.svg" width={40} height={40} /> */}
             </IconButton>
             <IconButton
               className="lap:hidden"
@@ -84,21 +91,25 @@ export default function SearchAppBar() {
           </div>
         </Toolbar>
       </AppBar>
-      <AccountMenu
-        anchorEl={anchorEl}
-        menuId={menuId}
-        setAnchorEl={setAnchorEl}
-      />
+      {authState && (
+        <AccountMenu
+          anchorEl={anchorEl}
+          menuId={menuId}
+          setAnchorEl={setAnchorEl}
+        />
+      )}
     </Box>
   );
 }
 
 function AccountMenu({ anchorEl, menuId, setAnchorEl }) {
+  const dispatch = use_dispatch();
   const isMenuOpen = Boolean(anchorEl);
 
   const handleMenuClose = () => {
     setAnchorEl(null);
   };
+
   return (
     <Menu
       anchorEl={anchorEl}
@@ -117,6 +128,7 @@ function AccountMenu({ anchorEl, menuId, setAnchorEl }) {
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleLogOut}>Logout</MenuItem>
     </Menu>
   );
 }

@@ -52,7 +52,7 @@ function Item({ item, pc, expanded, setExpanded, drawer }) {
     return (
       <>
         <SubItem
-          href={item.name === "home" ? "" : item.name}
+          href={item.name === "home" ? "/" : item.name}
           item={item.name}
         />
       </>
@@ -76,7 +76,7 @@ function Item({ item, pc, expanded, setExpanded, drawer }) {
       }}
       className="flex flex-col pc_item"
     >
-      <Link href={""} onClick={(e) => e.preventDefault()} className="w-full">
+      <Link href={"/"} onClick={(e) => e.preventDefault()} className="w-full">
         <div className="flex justify-between w-full gap-1 items-center">
           <div className="capitalize">{item.name}</div>
           <motion.div
@@ -111,7 +111,11 @@ function SubfieldsContainer({ item_data, expanded }) {
             <SubItem
               item={subitem}
               key={subitem}
-              href={item_data.name.replace(/\s/g, "")}
+              href={
+                item_data.name.replace(/\s/g, "") +
+                "/" +
+                subitem.replace(/\s/g, "")
+              }
             />{" "}
           </ListItem>
         ))}
@@ -120,10 +124,8 @@ function SubfieldsContainer({ item_data, expanded }) {
   );
 }
 function SubItem({ item, href }) {
-  const link = `${href}/${item.replace(/\s/g, "")}`;
-
   return (
-    <Link href={link} className="block w-full pc_item">
+    <Link href={href} className="block w-full pc_item">
       <ListItemButton>
         <div className="capitalize">{item}</div>
       </ListItemButton>
