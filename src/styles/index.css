@@ -196,6 +196,7 @@ footer p {
 }
 footer p a {
   color: var(--color_primary);
+  font-weight: bold;
 }
 
 .custom-input {
