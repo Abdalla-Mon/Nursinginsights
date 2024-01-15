@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "../styles/index.css";
 import StoreProvider from "./StorePorvider";
 import Navbar from "./navbar/Navbar";
+import Footer from "./footer/footer";
 
 export const cubid = localFont({
   src: [
@@ -42,6 +43,7 @@ export default function RootLayout({ children }) {
         <StoreProvider>
           <Navbar />
           {children}
+          <Footer />
         </StoreProvider>
       </body>
     </html>

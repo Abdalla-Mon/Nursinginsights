@@ -1,0 +1,33 @@
+@use "../../utils/varibales" as *;
+footer {
+  text-align: center;
+  padding: 30px 10px;
+  box-shadow: 0 -10px 28px 0 rgba(175, 181, 204, 0.32);
+
+  .img-container {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--color_primary);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    img {
+      margin: 5px 0 0 5px;
+    }
+    margin: auto;
+  }
+
+  h3 {
+    font-size: calc(1.1rem + 0.2vw);
+    font-weight: bold;
+    color: var(--color_primary);
+    margin-bottom: 15px;
+  }
+  p {
+    color: var(--heading_color);
+    a {
+      color: var(--color_primary);
+    }
+  }
+}
