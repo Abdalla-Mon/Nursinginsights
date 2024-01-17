@@ -1,10 +1,12 @@
 {
   "navList": [
     {
-      "name": "home"
+      "name": "home",
+      "href": "/"
     },
     {
       "name": "courses",
+      "href": "/courses/",
       "subfields": [
         "first grade",
         "second grade",
@@ -14,10 +16,12 @@
     },
     {
       "name": "nursing care plans",
+      "href": "/nursingcareplans/",
       "subfields": ["psychatric", "others"]
     },
     {
-      "name": "books"
+      "name": "books",
+      "href": "/books"
     }
   ]
 }

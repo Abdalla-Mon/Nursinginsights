@@ -47,14 +47,11 @@ export default function NavList({ drawer }) {
   );
 }
 
-function Item({ item, pc, expanded, setExpanded, drawer }) {
+function Item({ item, pc, expanded, setExpanded }) {
   if (!item.subfields) {
     return (
       <>
-        <SubItem
-          href={item.name === "home" ? "/" : item.name}
-          item={item.name}
-        />
+        <SubItem href={item.href} item={item.name} />
       </>
     );
   }
@@ -111,11 +108,7 @@ function SubfieldsContainer({ item_data, expanded }) {
             <SubItem
               item={subitem}
               key={subitem}
-              href={
-                item_data.name.replace(/\s/g, "") +
-                "/" +
-                subitem.replace(/\s/g, "")
-              }
+              href={item_data.href + subitem}
             />{" "}
           </ListItem>
         ))}
@@ -124,6 +117,7 @@ function SubfieldsContainer({ item_data, expanded }) {
   );
 }
 function SubItem({ item, href }) {
+  href = href.replace(/\s/g, "");
   return (
     <Link href={href} className="block w-full pc_item">
       <ListItemButton>

@@ -115,7 +115,6 @@
   }
   .pc_item div {
     color: var(--heading_text);
-    background-color: white !important;
   }
   .pc_item div:hover {
     color: var(--color_primary);
@@ -210,6 +209,7 @@ footer p a {
 }
 .custom-input input {
   width: 100%;
+  background-color: transparent;
   padding: 6px 12px;
   outline: none;
 }

@@ -4,11 +4,11 @@ import PrimaryBtn from "@/sharedComponents/Primary_btn";
 import { Input } from "@/sharedComponents/input";
 import Link from "next/link";
 import { MemberShip } from "../component/FormCard";
-import { usePathname } from "next/navigation";
 import { AppLoadingContext } from "@/app/StorePorvider";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { login } from "@/lib/auth/auth_wirh_email_and_pass/login_with_email";
+import { signWithGoogle } from "@/lib/auth/google/google_login";
 export function LoginCard() {
   const { formState, register, handleSubmit } = useForm();
   const { errors } = formState;
@@ -36,6 +36,9 @@ export function LoginCard() {
       >
         <div className="form-flex flex flex-col gap-5">
           <LoginInputs errors={errors} register={register} />
+          <button type="button" onClick={signWithGoogle}>
+            google
+          </button>
           <PrimaryBtn text={"Login"} arrow={true} class_name="login_btn" />
 
           <p className="form_error">{formError}</p>
