@@ -5,15 +5,17 @@ import { Input } from "@/sharedComponents/input";
 import Link from "next/link";
 import { MemberShip } from "../component/FormCard";
 import { AppLoadingContext } from "@/app/StorePorvider";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { login } from "@/lib/auth/auth_wirh_email_and_pass/login_with_email";
 import { signWithGoogle } from "@/lib/auth/google/google_login";
+import { useRouter } from "next/navigation";
 export function LoginCard() {
   const { formState, register, handleSubmit } = useForm();
   const { errors } = formState;
   const [formError, setFormError] = useState("");
   const { setLoading } = useContext(AppLoadingContext);
+  const [redirect, setRedirect] = useState(false);
   async function submit(data) {
     setLoading(true);
     const erorr = await login(data.sign_email, data.sign_password);
@@ -23,6 +25,10 @@ export function LoginCard() {
     }
     setFormError(erorr);
   }
+
+  useEffect(() => {
+    console.log(redirect);
+  }, [redirect]);
   return (
     <div className="login_card  ">
       <h3 className="text-center font-bold  mb-5" style={{ lineHeight: "1.2" }}>
@@ -36,7 +42,7 @@ export function LoginCard() {
       >
         <div className="form-flex flex flex-col gap-5">
           <LoginInputs errors={errors} register={register} />
-          <button type="button" onClick={signWithGoogle}>
+          <button type="button" onClick={() => signWithGoogle(setLoading)}>
             google
           </button>
           <PrimaryBtn text={"Login"} arrow={true} class_name="login_btn" />

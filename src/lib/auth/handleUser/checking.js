@@ -5,6 +5,7 @@ import { setAuthState } from "@/lib/redux/slices/authSlice";
 export const AppAuthProvider = ({ children }) => {
   const dispatch = use_dispatch();
   onAuthStateChanged(auth, (user) => {
+    console.log("User State Changed");
     if (user) {
       console.log(user);
       dispatch(setAuthState(true));

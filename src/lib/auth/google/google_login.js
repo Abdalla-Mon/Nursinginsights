@@ -1,5 +1,10 @@
+"use client";
 import { auth } from "@/lib/firebase_config/firebase_conig";
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import {
+  GoogleAuthProvider,
+  getRedirectResult,
+  signInWithRedirect,
+} from "firebase/auth";
 const provider = new GoogleAuthProvider();
 
 // export const signWithGoogle = signInWithPopup(auth, provider)
@@ -24,11 +29,15 @@ const provider = new GoogleAuthProvider();
 //     // ...
 //     console.log("Google Login field");
 //   });
-export const signWithGoogle = async () => {
+export const signWithGoogle = async (setRedirect) => {
   try {
-    const user = await signInWithPopup(auth, provider);
+    setRedirect(true);
+    const user = await signInWithRedirect(auth, provider);
     console.log(user);
+    setRedirect(true);
   } catch (error) {
+    // setRedirect(false);
+
     const errorCode = error.code;
     const errorMessage = error.message;
     // The email of the user's account used.
@@ -40,3 +49,24 @@ export const signWithGoogle = async () => {
     console.log("Google Login field");
   }
 };
+// export const getGoogleSingResult = async () => {
+//   try {
+//     const result = await getRedirectResult(auth);
+//     const credential = GoogleAuthProvider.credentialFromResult(result);
+//     const token = credential.accessToken;
+//     console.log(result);
+//     console.log(credential);
+//     // The signed-in user info.
+//     const user = result.user;
+//   } catch (error) {
+//     // Handle Errors here.
+//     const errorCode = error.code;
+//     const errorMessage = error.message;
+//     console.log(errorCode);
+//     // The email of the user's account used.
+//     const email = error.customData.email;
+//     // The AuthCredential type that was used.
+//     const credential = GoogleAuthProvider.credentialFromError(error);
+//     // ...
+//   }
+// };
