@@ -31,18 +31,12 @@ const provider = new GoogleAuthProvider();
 //   });
 export const signWithGoogle = async (setRedirect) => {
   try {
-    setRedirect(true);
     const user = await signInWithRedirect(auth, provider);
-    console.log(user);
-    setRedirect(true);
   } catch (error) {
-    // setRedirect(false);
-
     const errorCode = error.code;
     const errorMessage = error.message;
     // The email of the user's account used.
     const email = error.customData.email;
-    console.log(errorCode);
     // The AuthCredential type that was used.
     const credential = GoogleAuthProvider.credentialFromError(error);
     // ...

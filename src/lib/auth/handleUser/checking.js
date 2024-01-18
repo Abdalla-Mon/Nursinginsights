@@ -15,3 +15,4 @@ export const AppAuthProvider = ({ children }) => {
   });
   return <>{children}</>;
 };
+

@@ -4,14 +4,12 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC36bGeNT3qkXHk728dl7EwpTLqhPdvMi4",
-  authDomain: "nusring-students.firebaseapp.com",
-  projectId: "nusring-students",
-  databaseURL: "?",
-  storageBucket: "nusring-students.appspot.com",
-  messagingSenderId: "190665283175",
-  appId: "1:190665283175:web:9dfbfc73c56ab48a00a6c2",
-  measurementId: "G-E3ZZQ51878",
+  apiKey: "AIzaSyDoApIaBL9mDgtj9yNhzx4wfryRa9BF2y4",
+  authDomain: "nursing-insights.firebaseapp.com",
+  projectId: "nursing-insights",
+  storageBucket: "nursing-insights.appspot.com",
+  messagingSenderId: "102592596920",
+  appId: "1:102592596920:web:97872b1db48bbe7307dd4d",
 };
 const app = initializeApp(firebaseConfig);
 
