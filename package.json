@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint"
   },
@@ -17,13 +18,11 @@
     "framer-motion": "^10.16.16",
     "next": "14.0.4",
     "next-auth": "^4.24.5",
-    "next-redux-wrapper": "^8.1.0",
-    "pspdfkit": "^2023.5.4",
+    "next-sitemap": "^4.2.3",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.49.3",
     "react-icons": "^4.12.0",
-    "react-quill": "^2.0.0",
     "react-redux": "^9.0.4"
   },
   "devDependencies": {
