@@ -1,3 +1,5 @@
+import getData from "@/lib/fetch_data/getData";
+import Link from "next/link";
 // export async function generateMetadata({ params: { userId } }){
 //     const userData = getUser(userId)
 //     const user = await userData
@@ -15,28 +17,6 @@
 
 // }
 
-// export default async function UserPage({ params: { userId } }) {
-//     const userData= getUser(userId)
-//     const userPostsData = getUserPosts(userId)
-
-//     //const [user, userPosts] = await Promise.all([userData, userPostsData])
-
-//     const user = await userData
-
-//     if (!user.name) notFound()
-
-//     return (
-//         <>
-//             <h2>{user.name}</h2>
-//             <br />
-//             <Suspense fallback={<h2>Loading...</h2>}>
-//                 {/* @ts-expect-error Server Component */}
-//                 <UserPosts promise={userPostsData} />
-//             </Suspense>
-//         </>
-//     )
-// }
-
 // export async function generateStaticParams() {
 //     const usersData= getAllUsers()
 //     const users = await usersData
@@ -45,6 +25,23 @@
 //         userId: user.id.toString()
 //     }))
 // }
-export default function Course() {
-  return <>course</>;
+
+export default async function Course() {
+  // const dataInfo = { collection: "courses", segment: "psychology/lectures" };
+  // const data = await getData(dataInfo);
+  // console.log(data);
+  // const courseData = data.map((course) => {
+  //   course = course.info;
+  //   return (
+  //     <div key={course.id}>
+  //       <h2>{course.title}</h2>
+  //     </div>
+  //   );
+  // });
+  return (
+    <div>
+      <h1>Courses</h1>
+      {/*{courseData}*/}
+    </div>
+  );
 }

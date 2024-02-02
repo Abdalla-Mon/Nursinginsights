@@ -8,6 +8,7 @@
       "name": "courses",
       "href": "/courses/",
       "subfields": [
+        "all",
         "first grade",
         "second grade",
         "third grade",
@@ -16,8 +17,7 @@
     },
     {
       "name": "nursing care plans",
-      "href": "/nursingcareplans/",
-      "subfields": ["psychatric", "others"]
+      "href": "/nursingcareplans/"
     },
     {
       "name": "books",
