@@ -1,8 +1,8 @@
 import localFont from "next/font/local";
 import "../styles/index.css";
 import StoreProvider from "./StorePorvider";
-import Navbar from "./navbar/Navbar";
-import Footer from "./footer/footer";
+import Navbar from "@/app/navbar/Navbar";
+import Footer from "@/app/footer/footer";
 
 export const cubid = localFont({
   src: [

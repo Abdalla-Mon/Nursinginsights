@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://nursinginsights.vercel.app
+
+# Sitemaps
+Sitemap: https://nursinginsights.vercel.app/sitemap.xml

@@ -1,10 +1,10 @@
 import { ResetPasswordCard } from "./ResetPassword";
 export const metadata = {
-  title: "Reset Pssword page | Nursing Insights",
+  title: "Reset Password - Nursing Insights",
   description:
-    "Unlock the path to nursing excellence with NursingInsights – your comprehensive online resource for students and professionals in the field of nursing. Explore enriching lectures, insightful videos, and interactive quizzes designed to elevate your academic journey. Delve into department-specific information, guiding you to excel in every facet of your college experience. Join us in fostering a community committed to the art and science of nursing. Empower your knowledge, embrace your potential, and thrive in the world of healthcare at NursingInsights.",
+      "Reset your password for NursingInsights – your comprehensive online resource for students and professionals in the field of nursing. Regain access to enriching lectures, insightful videos, interactive quizzes, and more to elevate your academic journey. Join us in fostering a community committed to the art and science of nursing. Continue your journey towards nursing excellence today.",
   keyWords:
-    "Nursing Insights login page, nursing education, healthcare, student resources, nursing excellence ",
+      "Nursing Insights, reset password, nursing education, healthcare, student resources, nursing excellence",
 };
 export default function ResetPassword() {
   return <ResetPasswordCard />;
