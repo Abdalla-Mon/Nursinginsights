@@ -260,6 +260,7 @@ footer p a {
 .login_btn,
 .signup_btn {
   padding: 8px;
+  font-size: 1rem !important;
 }
 
 .special_link {
