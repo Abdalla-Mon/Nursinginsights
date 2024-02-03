@@ -14,7 +14,6 @@
     rgb(255, 255, 255) 0%,
     rgb(240, 242, 255) 100%
   );
-
   --gradient_3: linear-gradient(90deg, #8da9fc 0%, #b48dd5 100%);
   --gradient_4: linear-gradient(180deg, #eff1ff 0%, #ffffff 100%);
   --gradient_5: linear-gradient(rgb(239, 241, 255) 0%, rgb(239, 241, 255) 100%);
