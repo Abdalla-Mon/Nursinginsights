@@ -1,8 +1,6 @@
 @use "../../utils/varibales" as *;
 
-.navbar {
-  box-shadow: 0px 20px 34px #0000000d;
-}
+
 .nav_icons_container button {
   margin-right: 0;
   font-size: 1.5rem;
@@ -23,6 +21,7 @@
   border-bottom: 1px solid #b966e74d;
   color: var(--heading_text);
   font-weight: bold;
+  
   @include transition_(var(--primary_transition));
 }
 
