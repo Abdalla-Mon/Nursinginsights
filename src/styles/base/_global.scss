@@ -1,157 +1,166 @@
 @use "../utils/varibales" as *;
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.responsive_height {
+    min-height: calc(100vh - 64px);
+}
+
 .centerd {
-  @include centering;
+    @include centering;
 }
+
 body {
-  min-height: 100vh;
+    min-height: 100vh;
 }
+
 h1 {
-  font-size: 1.8em; // default size
+    font-size: 1.8em; // default size
 
-  @media (min-width: 576px) {
-    // for small devices
-    font-size: 2.3em;
-  }
+    @media (min-width: 576px) {
+        // for small devices
+        font-size: 2.3em;
+    }
 
-  @media (min-width: 768px) {
-    // for medium devices
-    font-size: 2.8em;
-  }
+    @media (min-width: 768px) {
+        // for medium devices
+        font-size: 2.8em;
+    }
 
-  @media (min-width: 992px) {
-    // for large devices
-    font-size: 3.3em;
-  }
+    @media (min-width: 992px) {
+        // for large devices
+        font-size: 3.3em;
+    }
 
-  @media (min-width: 1200px) {
-    // for extra large devices
-    font-size: 3.8em;
-  }
+    @media (min-width: 1200px) {
+        // for extra large devices
+        font-size: 3.8em;
+    }
 }
 
 h2 {
-  font-size: 1.5em; // default size
+    font-size: 1.5em; // default size
 
-  @media (min-width: 576px) {
-    // for small devices
-    font-size: 1.75em;
-  }
+    @media (min-width: 576px) {
+        // for small devices
+        font-size: 1.75em;
+    }
 
-  @media (min-width: 768px) {
-    // for medium devices
-    font-size: 2em;
-  }
+    @media (min-width: 768px) {
+        // for medium devices
+        font-size: 2em;
+    }
 
-  @media (min-width: 992px) {
-    // for large devices
-    font-size: 2.25em;
-  }
+    @media (min-width: 992px) {
+        // for large devices
+        font-size: 2.25em;
+    }
 
-  @media (min-width: 1200px) {
-    // for extra large devices
-    font-size: 2.5em;
-  }
+    @media (min-width: 1200px) {
+        // for extra large devices
+        font-size: 2.5em;
+    }
 }
 
 h3 {
-  font-size: 1.3em; // default size
+    font-size: 1.3em; // default size
 
-  @media (min-width: 576px) {
-    // for small devices
-    font-size: 1.5em;
-  }
+    @media (min-width: 576px) {
+        // for small devices
+        font-size: 1.5em;
+    }
 
-  @media (min-width: 768px) {
-    // for medium devices
-    font-size: 1.75em;
-  }
+    @media (min-width: 768px) {
+        // for medium devices
+        font-size: 1.75em;
+    }
 
-  @media (min-width: 992px) {
-    // for large devices
-    font-size: 2em;
-  }
+    @media (min-width: 992px) {
+        // for large devices
+        font-size: 2em;
+    }
 
-  @media (min-width: 1200px) {
-    // for extra large devices
-    font-size: 2.25em;
-  }
+    @media (min-width: 1200px) {
+        // for extra large devices
+        font-size: 2.25em;
+    }
 }
+
 h4 {
-  font-size: 1em; // default size
+    font-size: 1em; // default size
 
-  @media (min-width: 576px) {
-    // for small devices
-    font-size: 1.3em;
-  }
+    @media (min-width: 576px) {
+        // for small devices
+        font-size: 1.3em;
+    }
 
-  @media (min-width: 768px) {
-    // for medium devices
-    font-size: 1.5em;
-  }
+    @media (min-width: 768px) {
+        // for medium devices
+        font-size: 1.5em;
+    }
 
-  @media (min-width: 992px) {
-    // for large devices
-    font-size: 1.7em;
-  }
+    @media (min-width: 992px) {
+        // for large devices
+        font-size: 1.7em;
+    }
 
-  @media (min-width: 1200px) {
-    // for extra large devices
-    font-size: 2em;
-  }
+    @media (min-width: 1200px) {
+        // for extra large devices
+        font-size: 2em;
+    }
 }
 
 h5 {
-  font-size: 0.9em; // default size
+    font-size: 0.9em; // default size
 
-  @media (min-width: 576px) {
-    // for small devices
-    font-size: 1em;
-  }
+    @media (min-width: 576px) {
+        // for small devices
+        font-size: 1em;
+    }
 
-  @media (min-width: 768px) {
-    // for medium devices
-    font-size: 1.2em;
-  }
+    @media (min-width: 768px) {
+        // for medium devices
+        font-size: 1.2em;
+    }
 
-  @media (min-width: 992px) {
-    // for large devices
-    font-size: 1.5em;
-  }
+    @media (min-width: 992px) {
+        // for large devices
+        font-size: 1.5em;
+    }
 
-  @media (min-width: 1200px) {
-    // for extra large devices
-    font-size: 1.7em;
-  }
+    @media (min-width: 1200px) {
+        // for extra large devices
+        font-size: 1.7em;
+    }
 }
 
 h6 {
-  font-size: 0.7em; // default size
+    font-size: 0.7em; // default size
 
-  @media (min-width: 576px) {
-    // for small devices
-    font-size: 0.9em;
-  }
+    @media (min-width: 576px) {
+        // for small devices
+        font-size: 0.9em;
+    }
 
-  @media (min-width: 768px) {
-    // for medium devices
-    font-size: 1em;
-  }
+    @media (min-width: 768px) {
+        // for medium devices
+        font-size: 1em;
+    }
 
-  @media (min-width: 992px) {
-    // for large devices
-    font-size: 1.2em;
-  }
+    @media (min-width: 992px) {
+        // for large devices
+        font-size: 1.2em;
+    }
 
-  @media (min-width: 1200px) {
-    // for extra large devices
-    font-size: 1.4em;
-  }
+    @media (min-width: 1200px) {
+        // for extra large devices
+        font-size: 1.4em;
+    }
 }
+
 h1,
 h2,
 h3 {
-  color: var(--heading_text);
+    color: var(--heading_text);
 }

@@ -308,6 +308,10 @@ footer p a {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.responsive_height {
+  min-height: calc(100vh - 64px);
+}
+
 .centerd {
   display: flex;
   justify-content: center;
