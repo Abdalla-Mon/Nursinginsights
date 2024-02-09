@@ -1,7 +1,7 @@
 "use client"
 import {Fab, Button} from "@mui/material";
 import {IoMdAdd} from "react-icons/io";
-import {useReducer, useState} from "react";
+import {useCallback, useReducer, useState} from "react";
 import TextField from "@mui/material/TextField";
 import {MdDelete} from "react-icons/md";
 
@@ -15,6 +15,7 @@ function inputPairReducer(state = initialState, action) {
       // return state.filter((item, index) => index !== action.index);
 
       return state.filter((item, index) => index !== action.index);
+
     default:
       return state;
   }
@@ -40,14 +41,17 @@ function RenderTextField(props) {
 }
 
 export default function CreateFields(props) {
-  const {register, errors, array = [], text = "Add a description", fields, id} = props;
+  const {register, errors, array = [], text = "Add a description", fields, id, setDeleted} = props;
 
   const [state, dispatch] = useReducer(inputPairReducer, array);
 
   const handleAddClick = () => {
     dispatch({type: 'ADD_INPUT_PAIR'});
   };
-
+  const handleDeleteClick = (item) => {
+    // dispatch({type: 'DELETE_INPUT_PAIR', index});
+    setDeleted((prev) => [...prev, item])
+  };
   return (
     <div className={"mt-2"}>
       <Fab variant="extended" size="medium" className={"w-fit bg-fuchsia-700 text-[white]"} aria-label="add"
@@ -59,7 +63,7 @@ export default function CreateFields(props) {
 
       <FieldsContent
         register={register} errors={errors} state={state}
-        dispatch={dispatch}
+        handleDeleteClick={handleDeleteClick}
         fields={fields}
         id={id}
       />
@@ -67,16 +71,13 @@ export default function CreateFields(props) {
   )
 }
 
-function FieldsContent({state, register, errors, fields, id, dispatch}) {
-  const handleDeleteClick = (index) => {
-    dispatch({type: 'DELETE_INPUT_PAIR', index});
-  };
-  const [render, setRender] = useState(true);
+function FieldsContent({state, register, errors, fields, id, handleDeleteClick}) {
+
   const {idLabel, firstField, secondField} = fields;
   return (
     <div className={"flex flex-col gap-2 mt-3"}>
       {state.map((inputPair, index) => (
-        <div key={index} className={"flex flex-col gap-2"}>
+        <div key={firstField.id + index} className={"flex flex-col gap-2"}>
           {id && <RenderTextField
             label={idLabel.label}
             id={`${idLabel.id}-${index}`}
@@ -111,9 +112,10 @@ function FieldsContent({state, register, errors, fields, id, dispatch}) {
           <Button variant="outlined" startIcon={<MdDelete/>} className={"w-fit"} color="error"
                   type="delete" onClick={(e) => {
             e.preventDefault();
-            handleDeleteClick(inputPair.id ? inputPair.id : index)
-            setRender(!render)
-            setRender(!render)
+            e.target.parentElement.remove();
+            if (id) handleDeleteClick(inputPair[idLabel.id])
+            else handleDeleteClick(inputPair[firstField.id])
+
           }}>
             Delete
           </Button>

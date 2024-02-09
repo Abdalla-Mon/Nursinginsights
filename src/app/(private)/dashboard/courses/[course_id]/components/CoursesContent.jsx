@@ -35,7 +35,9 @@ export default async function CourseContent({course_id}) {
   return (
     <div>
       <CreateForm courses={formInputs} style="" selectValue={data.category} descriptionArray={data.description}
-                  buttonText={"Edit"}/>
+                  buttonText={"Edit"}
+
+      />
     </div>
   );
 }

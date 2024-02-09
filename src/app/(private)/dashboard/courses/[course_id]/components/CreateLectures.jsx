@@ -26,17 +26,17 @@ const lecturesFields =
     }
   }
 
-export default async function CreateLectures({course_id, loading, register, errors}) {
+export default async function CreateLectures({course_id, loading, register, errors, setDeleted}) {
   const {url} = useContext(AppLoadingContext)
   const fullUrl = `${url}/api/courses/${course_id}`
   const result = await getData(fullUrl);
   let data = result;
   if (!data) return <div>loading...</div>
-
   return (
     <>
       <CreateFields register={register} errors={errors} text={"Add lectures"} fields={lecturesFields} id={true}
                     array={data}
+                    setDeleted={setDeleted}
       />
       <Button startIcon={<FaSave/>} variant="contained"
               type={"submit"}
