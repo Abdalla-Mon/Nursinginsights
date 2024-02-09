@@ -1,5 +1,8 @@
+"use client";
 import getData from "@/lib/fetch_data/getData";
 import Link from "next/link";
+import {useSearchParams} from "next/navigation";
+import {useEffect, useState} from "react";
 // export async function generateMetadata({ params: { userId } }){
 //     const userData = getUser(userId)
 //     const user = await userData
@@ -26,22 +29,33 @@ import Link from "next/link";
 //     }))
 // }
 
-export default async function Course() {
-  // const dataInfo = { collection: "courses", segment: "psychology/lectures" };
-  // const data = await getData(dataInfo);
-  // console.log(data);
-  // const courseData = data.map((course) => {
-  //   course = course.info;
-  //   return (
-  //     <div key={course.id}>
-  //       <h2>{course.title}</h2>
-  //     </div>
-  //   );
-  // });
+export default async function Course({params: {course_id}}) {
+  const q = useSearchParams().get("q");
+  const [data, setData] = useState(null);
+  console.log(q)
+  useEffect(() => {
+    const fetchData = async () => {
+      const url = `${window.location.origin}/api/courses/${course_id}?q=${q || ""}`
+      const result = await getData(url);
+      console.log(url)
+      setData(result);
+    };
+    fetchData();
+  }, [q]);
+
+  if (!data) return <div>loading...</div>;
+
+  const courseData = data.map((course) => {
+    return (
+      <div key={course.id}>
+        <h2>{course.title}</h2>
+      </div>
+    );
+  });
   return (
     <div>
       <h1>Courses</h1>
-      {/*{courseData}*/}
+      {courseData}
     </div>
   );
 }
