@@ -1,0 +1,56 @@
+[
+  {
+    "input": {
+      "id": "title",
+      "name": "Title",
+      "type": "text",
+      "required": true
+    },
+    "pattern": {
+      "required": {
+        "value": true,
+        "message": "This field is required"
+      }
+    }
+  },
+  {
+    "input": {
+      "id": "id",
+      "name": "ID",
+      "type": "text",
+      "required": true
+    },
+    "pattern": {
+      "required": {
+        "value": true,
+        "message": "This field is required"
+      }
+    }
+  },
+  {
+    "input": {
+      "id": "select",
+      "name": "Select",
+      "type": "select",
+      "required": true
+    },
+    "options": [
+      "Option 1",
+      "Option 2",
+      "Option 3"
+    ],
+    "pattern": {
+      "required": {
+        "value": true,
+        "message": "This field is required"
+      }
+    }
+  },
+  {
+    "input": {
+      "id": "image",
+      "name": "Image",
+      "type": "file"
+    }
+  }
+]
