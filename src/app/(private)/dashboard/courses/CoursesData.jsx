@@ -8,7 +8,7 @@ export default async function CoursesData({revalidate}) {
   useEffect(() => {
     setHost(window.location.origin);
   }, []);
-  if (!host) return <div>loading...</div>;
+  if (!host) return <div>loading....</div>;
   const data = await getData(`${host}/api/courses`);
   const courses = data?.map((course) => {
     return (
