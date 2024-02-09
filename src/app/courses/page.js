@@ -1,21 +1,15 @@
 "use client";
 import getData from "@/lib/fetch_data/getData";
 import Link from "next/link";
-import {useEffect, useState} from "react";
 import {useSearchParams} from "next/navigation";
+import {AppLoadingContext} from "@/app/StorePorvider";
+import {useContext,} from "react";
 
-export default function Courses() {
+export default async function Courses() {
   const category = useSearchParams().get("category");
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await getData(`${window.location.origin}/api/courses?category=${category || "all"}`);
-      setData(result);
-    };
-    fetchData();
-  }, [category]);
-
+  const {url} = useContext(AppLoadingContext)
+  const result = await getData(`${url}/api/courses?category=${category || "all"}`);
+  const data = result;
   if (!data) return <div>loading...</div>;
 
   const courses = data.map((course) => (

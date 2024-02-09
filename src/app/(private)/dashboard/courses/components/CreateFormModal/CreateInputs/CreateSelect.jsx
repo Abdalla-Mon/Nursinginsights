@@ -5,8 +5,8 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-export default function CreateSelect({register, errors}) {
-  const [cat, setCat] = React.useState('');
+export default function CreateSelect({register, errors, value = ""}) {
+  const [cat, setCat] = React.useState(value);
   const handleChange = (event) => {
     setCat(event.target.value);
   };
@@ -20,6 +20,7 @@ export default function CreateSelect({register, errors}) {
       <Select
         id="cat"
         value={cat}
+
         label="cat"
         {...register('cat', {
           required: {

@@ -4,6 +4,7 @@ import {Modal} from '@mui/material';
 import CreateBtn from "@/app/(private)/dashboard/courses/components/CreateBtn/CreateBtn";
 import CreateForm from "@/app/(private)/dashboard/courses/components/CreateFormModal/CreateForm/CreateForm";
 
+import courses from "../../data/courses.json"
 
 export default function CreateModal({setReValidate}) {
   const [open, setOpen] = React.useState(false);
@@ -18,12 +19,14 @@ export default function CreateModal({setReValidate}) {
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-        className={"overflow-y-auto p-4 flex overflow-y-auto"}
+        className={"overflow-y-auto p-4 flex "}
       >
-
-        <CreateForm handleClose={handleClose} setReValidate={setReValidate}/>
+        <CreateForm handleClose={handleClose} courses={courses}
+                    setReValidate={setReValidate}
+        />
       </Modal>
     </div>
 
   )
 }
+
