@@ -1,24 +1,37 @@
-import getCollectionDocuments from "@/lib/fetch_data/firebase/getCollectionDocuments";
+import getSupaBaseLectures from "@/lib/fetch_data/supabase/getSupaBaseLectures";
 
-export async function GET(request, {params}) {
-  const {courseId} = params;
-
+export async function GET(request, { params }) {
+  const { courseId } = params;
   if (!courseId) {
     throw new Error("Course ID is required");
   }
 
-  try {
-    const dataInfo = {collection: "courses"};
-    let data = await getCollectionDocuments(dataInfo, `${courseId}/lectures`);
-    const searchByTitle = request.nextUrl.searchParams.get("q");
+  const { searchParams } = request.nextUrl;
+  const limit = searchParams.get("limit");
+  const title = searchParams.get("title");
+  const page = searchParams.get("page");
 
-    if (searchByTitle) {
-      data = data.filter((course) => course.title.toLowerCase().includes(searchByTitle.toLowerCase()));
+  try {
+    const data = await getSupaBaseLectures("courses", "lectures", courseId);
+    let finalData = data.map((course) => course.lectures)[0];
+
+    if (page && limit) {
+      finalData.lectures = finalData.lectures.slice(
+        page * limit,
+        page * limit + limit,
+      );
+      finalData.lectures = finalData.lectures.slice(0, limit);
     }
 
-    return Response.json(data);
+    if (title) {
+      finalData.lectures = finalData.lectures.filter((lecture) =>
+        lecture.lectureName.includes(title),
+      );
+    }
+
+    return Response.json(finalData);
   } catch (error) {
     console.error(error);
-    return Response.json({error: "An error occurred while fetching data"});
+    return Response.json({ error: "An error occurred while fetching data" });
   }
 }

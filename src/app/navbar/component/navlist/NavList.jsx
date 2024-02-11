@@ -48,7 +48,7 @@ export default function NavList({drawer}) {
   );
 }
 
-function Item({item, pc, expanded, setExpanded}) {
+export function Item({item, pc, expanded, setExpanded}) {
   if (!item.subfields) {
     return (
       <>
@@ -72,11 +72,11 @@ function Item({item, pc, expanded, setExpanded}) {
           }
         }
       }}
-      className="flex flex-col pc_item"
+      className="flex flex-col pc_item "
     >
       <Link href={"/"} onClick={(e) => e.preventDefault()} className="w-full">
-        <div className="flex justify-between w-full gap-1 items-center">
-          <div className="capitalize">{item.name}</div>
+        <div className="flex justify-between w-full gap-1 items-center ">
+          <div className="capitalize text_div  w-full">{item.name}</div>
           <motion.div
             initial={{rotateZ: 0}}
             animate={expanded === item.name ? {rotateZ: -90} : {rotateZ: 0}}
@@ -111,6 +111,7 @@ function SubfieldsContainer({item_data, expanded}) {
               item={subitem}
               key={subitem}
               href={item_data.href + "?category=" + subitem.replace(" ", "_")}
+              padding={"py-[2px]"}
             />{" "}
           </ListItem>
         ))}
@@ -119,12 +120,12 @@ function SubfieldsContainer({item_data, expanded}) {
   );
 }
 
-function SubItem({item, href}) {
+function SubItem({item, href, padding}) {
   href = href.replace(/\s/g, "");
   return (
     <Link href={href} className="block w-full pc_item">
       <ListItemButton>
-        <div className="capitalize">{item}</div>
+        <div className={"text_div " + padding}>{item}</div>
       </ListItemButton>
     </Link>
   );
