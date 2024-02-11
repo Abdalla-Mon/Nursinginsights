@@ -5,9 +5,10 @@ export default function DashboardLayout({ children }) {
     <section className="responsive_height">
       <Background />
       <div className={"container mx-auto"}>
-        <div className={"flex flex-row gap-6 p-5 py-10 justify-center"}>
-          <DashMenu />
-          <div className={"tab:w-[70%]"}>{children}</div>
+        <div
+          className={"flex flex-row gap-6 p-3  tab:p-5 py-10 justify-center"}
+        >
+          <div className={"w-full"}>{children}</div>
         </div>
       </div>
     </section>
