@@ -8,7 +8,7 @@ export default async function getSupabaseData(
 ) {
   let query = supabase.from(tableName).select(columnName);
 
-  if (category) {
+  if (category && category !== "all") {
     query = query.filter(`${tableName}->>category`, "eq", category);
   }
 

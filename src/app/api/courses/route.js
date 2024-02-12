@@ -13,7 +13,6 @@ export async function GET(request) {
       tableName,
       columnName,
       filterByCategory,
-
       title,
     );
     let finalData = data.map((course) => {
@@ -28,6 +27,7 @@ export async function GET(request) {
     console.log(
       Response.json({ error: "An error occurred while fetching data" }),
     );
+
     return Response.json({ error: "An error occurred while fetching data" });
   }
 }

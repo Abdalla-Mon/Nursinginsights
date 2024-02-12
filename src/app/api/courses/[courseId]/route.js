@@ -23,10 +23,11 @@ export async function GET(request, { params }) {
       finalData.lectures = finalData.lectures.slice(0, limit);
     }
 
-    if (title) {
-      finalData.lectures = finalData.lectures.filter((lecture) =>
-        lecture.lectureName.includes(title),
-      );
+    if (title && title.length > 0) {
+      finalData.lectures = finalData.lectures.filter((lecture) => {
+        console.log(lecture.lectureName);
+        return lecture.lectureName.toLowerCase().includes(title.toLowerCase());
+      });
     }
 
     return Response.json(finalData);
