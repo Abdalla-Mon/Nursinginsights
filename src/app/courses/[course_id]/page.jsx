@@ -1,53 +1,45 @@
 import CourseContent from "@/app/courses/[course_id]/CourseContent";
 import getData from "@/lib/fetch_data/getData";
-import { NextRequest } from "next/server";
-import { useRouter } from "next/navigation";
 
 export async function generateMetadata({ params: { course_id } }) {
-  let url = `https://nursinginsights.vercel.app/api/courses?id=${course_id}`;
+  let url = `/api/courses?id=${course_id}`;
   let result = await getData(url);
-  if (!result) {
-    url = `http://localhost:3000/api/courses/=${course_id}`;
-    result = await getData(url);
-  }
-  if (!result[0].title) {
+  result = result[0];
+  if (!result.title) {
     return {
       title: "Title Not Found",
     };
   }
-  let title = result[0].title;
-  title = title[0].toUpperCase() + title.slice(1);
+  let { title } = result;
+
   return {
-    title: title + " | Courses",
+    title: title + " | Nursing Courses",
+    description: `${title} is a comprehensive nursing course offered by the Faculty of Nursing Cairo university. Learn more about this and other nursing courses on nursing insights website.`,
+    keyWords:
+      "Nursing, nursing education, healthcare, student resources, nursing excellence, nursing courses, Nursing Insights, online nursing courses, nursing community, academic journey, healthcare professionals",
   };
 }
 
 export async function generateStaticParams() {
-  let url = `https://nursinginsights.vercel.app/api/courses`;
+  let url = `/api/courses`;
   let courses = await getData(url);
-  if (!courses) {
-    url = `http://localhost:3000/api/courses`;
-    courses = await getData(url);
-  }
-  return courses.map((course) => ({
+  courses = courses.map((course) => ({
     params: {
       course_id: course.id.toString(),
     },
   }));
-}
-
-async function fetchData(url, page = 0, limit = 5, title = "") {
-  const res = await fetch(url + `?page=${page}&limit=${limit}&title=${title}`);
-  const data = await res.json();
-  return data;
+  return courses;
 }
 
 export default async function Course({ params: { course_id }, searchParams }) {
-  const { page, limit, title } = searchParams;
-  const fullUrl = `http:localhost:3000/api/courses/${course_id}`;
-  const result = await fetchData(fullUrl, page, limit, title);
-  const data = result;
+  let { page, limit, title } = searchParams;
+  const path = `/api/courses/${course_id}`;
+  const result = await getData(
+    path + `?page=${page || 1}&limit=${limit || 9}&title=${title || ""}`,
+  );
+  const data = result.lectures;
+  console.log(result);
   if (!data) return <div>loading...</div>;
 
-  return <CourseContent data={data} />;
+  // return <CourseContent data={data} />;
 }
