@@ -1,4 +1,4 @@
-import CourseContent from "@/app/(private)/dashboard/courses/[course_id]/components/CoursesContent";
+import CourseContent from "@/app/(private)/dashboard/courses/components/CoursesContent/CoursesContent";
 import getData from "@/lib/fetch_data/getData";
 import LecturesContent from "@/app/(private)/dashboard/courses/[course_id]/components/LecturesContent";
 
@@ -18,8 +18,7 @@ export async function generateStaticParams() {
 
 export default function Course({ params: { course_id } }) {
   return (
-    <div>
-      <CourseContent course_id={course_id} />
+    <div className={""}>
       <LecturesContent course_id={course_id} />
     </div>
   );

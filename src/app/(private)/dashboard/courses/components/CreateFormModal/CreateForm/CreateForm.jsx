@@ -12,8 +12,7 @@ import { IoCloseCircle } from "react-icons/io5";
 import { MdDelete } from "react-icons/md";
 
 import { AppLoadingContext } from "@/app/StorePorvider";
-// import { doc, setDoc } from "firebase/firestore";
-// import { database } from "@/lib/firebase_config/firebase_conig";
+
 import { Button } from "@mui/material";
 import { supabase } from "@/lib/supabaseConfig/supabaseConfig";
 
@@ -83,18 +82,20 @@ export default function CreateForm(props) {
       />
     );
   };
-  const descriptionFields = {
-    firstField: {
+  const descriptionFields = [
+    {
       label: "Heading",
       id: "heading",
       multi: false,
+      type: "text",
     },
-    secondField: {
+    {
       label: "Text Body",
       id: "textBody",
       multi: true,
+      type: "text",
     },
-  };
+  ];
   return (
     <form
       className={

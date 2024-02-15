@@ -9,23 +9,26 @@ import { database } from "@/lib/firebase_config/firebase_conig";
 import { AppLoadingContext } from "@/app/StorePorvider";
 import { supabase } from "@/lib/supabaseConfig/supabaseConfig";
 
-const lecturesFields = {
-  idLabel: {
+const lecturesFields = [
+  {
     label: "Lecture Id",
     id: "lectureId",
     multi: false,
+    type: "number",
   },
-  firstField: {
+  {
     label: "Lecture Name",
     id: "lectureName",
     multi: false,
+    type: "text",
   },
-  secondField: {
+  {
     label: "Lecture Link",
     id: "lectureLink",
+    type: "text",
     multi: true,
   },
-};
+];
 
 export default function CreateLectures({ course_id, courseData }) {
   const {
@@ -39,7 +42,6 @@ export default function CreateLectures({ course_id, courseData }) {
 
   async function submit(data) {
     setLoading(true);
-    console.log(deleted);
     if (data) {
       let lectures = groupLectures(data);
       lectures = lectures.filter((lecture, index) => {
@@ -50,7 +52,6 @@ export default function CreateLectures({ course_id, courseData }) {
     setLoading(false);
   }
 
-  // if (!courseLectures) return <div>loading...</div>;
   return (
     <>
       <form noValidate onSubmit={handleSubmit(submit)}>
@@ -98,33 +99,3 @@ async function updateLectures(lectures, id) {
     .update({ lectures: { id, lectures: lectures } })
     .filter(`lectures->>id`, "eq", id);
 }
-
-
-// firebase submit
-// async function submit(data) {
-//   setLoading(true);
-//   if (data) {
-//     let lectures = groupLectures(data);
-//     lectures.forEach((lecture) => {
-//       // const docRef = doc(
-//       //   database,
-//       //   "courses",
-//       //   course_id,
-//       //   "lectures",
-//       //   lecture.lectureId,
-//       // );
-//       if (deleted.includes(lecture.lectureId)) {
-//         // deleteDoc(docRef);
-//         return;
-//       }
-//       // setDoc(docRef, {
-//       //   info: {
-//       //     lectureId: lecture.lectureId,
-//       //     lectureName: lecture.lectureName,
-//       //     lectureLink: lecture.lectureLink,
-//       //   },
-//       // });
-//     });
-//   }
-//   setLoading(false);
-// }

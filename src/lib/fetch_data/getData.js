@@ -1,8 +1,7 @@
-import { url, localUrl } from "./url.js";
+import { localUrl } from "@/lib/fetch_data/url";
 
 export default async function getData(path) {
-  let res = await fetch(localUrl + path);
-
+  const res = await fetch(localUrl + path);
   const data = await res.json();
   return data;
 }

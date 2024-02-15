@@ -9,7 +9,7 @@ import SecondaryBtn from "@/sharedComponents/buttons/SecondaryBtn/SecondaryBtn";
 import { RiMenu2Line } from "react-icons/ri";
 import { MobileMenu } from "@/app/(private)/dashboard/DashboardMenu/DashMenu";
 
-export default function CreateModal({ setReValidate }) {
+export default function CreateModal({ setReValidate, card }) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -22,12 +22,15 @@ export default function CreateModal({ setReValidate }) {
           className={"tab:hidden text-3xl cursor-pointer"}
           onClick={() => setDrawer(true)}
         />
-        <SecondaryBtn
-          text={"Create a new course"}
-          arrow={true}
-          setModal={setOpen}
-          class_name={"tab:w-[350px] ml-auto flex justify-center"}
-        />
+        {card && <CreateBtn handleOpen={handleOpen} />}
+        {!card && (
+          <SecondaryBtn
+            text={"Create a new course"}
+            arrow={true}
+            setModal={setOpen}
+            class_name={"tab:w-[350px] ml-auto flex justify-center"}
+          />
+        )}
       </div>
       <Modal
         open={open}

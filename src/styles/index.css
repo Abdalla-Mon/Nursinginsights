@@ -230,17 +230,6 @@ footer p a {
   color: black;
 }
 
-.banner::after {
-  content: "";
-  background: linear-gradient(white 0%, rgba(255, 255, 255, 0.1) 100%);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
 .custom-input {
   width: 100%;
 }
@@ -355,11 +344,105 @@ footer p a {
     transform: rotate(90deg);
   }
 }
+.course_card {
+  padding: 1.25rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease;
+  max-width: 400px;
+}
+.course_card:hover {
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2);
+}
+.course_card .card_image {
+  width: 100%;
+  height: 12.5rem;
+  background: linear-gradient(to right, #3b82f6, #2563eb);
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+.course_card .card_title {
+  font-weight: bold;
+  color: var(--heading_text);
+}
+.course_card .card_category {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #4B5563;
+  margin-top: 0.5rem;
+  display: inline-block;
+  background-color: #E5E7EB;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+}
+.course_card .course_details {
+  color: #3b82f6;
+  transition: 0.3s;
+  position: relative;
+}
+.course_card .course_details::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #3b82f6;
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.course_card .course_details:hover::before {
+  transform: scaleX(1);
+}
+.course_card .btn_container {
+  margin-top: 1.5rem;
+}
+.course_card .btn_container .course_button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  width: fit-content;
+  text-align: center;
+  background-color: #3b82f6;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+.course_card .btn_container .course_button:hover {
+  background-color: #2563eb;
+}
+
+.banner::after {
+  content: "";
+  background: linear-gradient(white 0%, rgba(255, 255, 255, 0.1) 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.shared_banner {
+  padding: 60px 0px 120px;
+  background: linear-gradient(270deg, var(--color_secondary) 0%, var(--color_primary) 100%);
+  min-height: 400px;
+}
+.shared_banner .container {
+  padding: 0 15px;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 .responsive_height {
   min-height: calc(100vh - 64px);
+}
+
+.section_padding {
+  padding: 100px 15px;
 }
 
 .centerd {

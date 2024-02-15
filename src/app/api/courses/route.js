@@ -18,6 +18,7 @@ export async function GET(request) {
       filterByCategory,
       title,
     );
+    const titleData = data.map((course) => course.courses.title);
     if (id) {
       const course = data.filter((course) => course.courses.id === id)[0];
       console.log(course);
@@ -38,7 +39,7 @@ export async function GET(request) {
     }
     const total = finalData.length;
 
-    return Response.json({ data: finalData, total });
+    return Response.json({ data: finalData, total, titleData });
   } catch (error) {
     console.log(
       Response.json({ error: "An error occurred while fetching data" }),

@@ -2,7 +2,6 @@
 import CreateModal from "@/app/(private)/dashboard/courses/components/CreateFormModal/CreateModal";
 import CoursesData from "@/app/(private)/dashboard/courses/CoursesData";
 import { useState } from "react";
-import SecondaryBtn from "@/sharedComponents/buttons/SecondaryBtn/SecondaryBtn";
 import DashMenu from "@/app/(private)/dashboard/DashboardMenu/DashMenu";
 
 export default function DashboardPage() {

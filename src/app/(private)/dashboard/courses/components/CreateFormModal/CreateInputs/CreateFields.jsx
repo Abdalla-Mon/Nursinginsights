@@ -33,7 +33,7 @@ function RenderTextField(props) {
     multi = false,
     type = "text",
   } = props;
-
+  console.log(props, "props");
   return (
     <TextField
       label={label}
@@ -59,6 +59,7 @@ export default function CreateFields(props) {
     fields,
     id,
     setDeleted,
+    table = true,
   } = props;
 
   const [state, dispatch] = useReducer(inputPairReducer, array);
@@ -80,7 +81,6 @@ export default function CreateFields(props) {
         <IoMdAdd sx={{ mr: 1 }} />
         {text}
       </Fab>
-
       <FieldsContent
         register={register}
         errors={errors}
@@ -100,43 +100,26 @@ function FieldsContent({
   fields,
   id,
   handleDeleteClick,
+  table,
 }) {
-  const { idLabel, firstField, secondField } = fields;
   return (
     <div className={"flex flex-col gap-2 mt-3"}>
       {state.map((inputPair, index) => (
-        <div key={firstField.id + index} className={"flex flex-col gap-2"}>
-          {id && (
+        <div key={fields[0].id + index} className={"flex flex-col gap-2"}>
+          {fields.map((field) => (
             <RenderTextField
-              label={idLabel.label}
-              id={`${idLabel.id}-${index}`}
-              name={`${idLabel.id}-${index}`}
-              defaultValue={inputPair["lectureId"]}
+              key={field.id + index}
+              label={field.label}
+              id={`${field.id}-${index}`}
+              name={`${field.id}-${index}`}
+              defaultValue={inputPair[field.id]}
               register={register}
-              requiredMessage={`${idLabel.label} is required`}
+              requiredMessage={`${field.label} is required`}
               errors={errors}
-              type={"number"}
+              multi={field.multi}
+              type={field.type}
             />
-          )}
-          <RenderTextField
-            label={firstField.label}
-            id={`${firstField.id}-${index}`}
-            name={`${firstField.id}-${index}`}
-            defaultValue={inputPair[firstField.id]}
-            register={register}
-            requiredMessage={`${firstField.label} is required`}
-            errors={errors}
-          />
-          <RenderTextField
-            label={secondField.label}
-            id={`${secondField.id}-${index}`}
-            name={`${secondField.id}-${index}`}
-            register={register}
-            multi={secondField.multi}
-            requiredMessage={`${secondField.label} is required`}
-            errors={errors}
-            defaultValue={inputPair[secondField.id]}
-          />
+          ))}
           <Button
             variant="outlined"
             startIcon={<MdDelete />}
@@ -146,7 +129,7 @@ function FieldsContent({
             onClick={(e) => {
               e.preventDefault();
               if (id) handleDeleteClick(index);
-              else handleDeleteClick(inputPair[firstField.id]);
+              else handleDeleteClick(inputPair[fields[0].id]);
               e.target.parentElement.remove();
             }}
           >

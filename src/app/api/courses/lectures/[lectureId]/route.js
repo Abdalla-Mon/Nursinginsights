@@ -1,8 +1,8 @@
 import getSupaBaseLectures from "@/lib/fetch_data/supabase/getSupaBaseLectures";
 
 export async function GET(request, { params }) {
-  const { courseId } = params;
-  if (!courseId) {
+  const { lectureId } = params;
+  if (!lectureId) {
     throw new Error("Course ID is required");
   }
 
@@ -12,7 +12,7 @@ export async function GET(request, { params }) {
   let page = searchParams.get("page");
 
   try {
-    const data = await getSupaBaseLectures("courses", "lectures", courseId);
+    const data = await getSupaBaseLectures("courses", "lectures", lectureId);
     let finalData = data.map((course) => course.lectures)[0];
     if (title && title.length > 0) {
       finalData.lectures = finalData.lectures.filter((lecture) => {
