@@ -1,4 +1,3 @@
-import getCollectionDocuments from "@/lib/fetch_data/firebase/getCollectionDocuments";
 import getSupabaseData from "@/lib/fetch_data/supabase/getSupabaseData";
 
 export async function GET(request) {
@@ -26,17 +25,17 @@ export async function GET(request) {
     let finalData = data.map((course) => {
       return course.courses;
     });
-    if (page && limit) {
-      page--;
-      finalData = finalData.slice(page * limit, page * limit + limit);
-      finalData = finalData.slice(0, limit);
-    }
     if (title && title.length > 0) {
       finalData = finalData.filter((course) => {
         return course.title.toLowerCase().includes(title.toLowerCase());
       });
     }
     const total = finalData.length;
+    if (page && limit) {
+      page--;
+      finalData = finalData.slice(page * limit, page * limit + limit);
+      finalData = finalData.slice(0, limit);
+    }
 
     return Response.json({ data: finalData, total, titleData });
   } catch (error) {

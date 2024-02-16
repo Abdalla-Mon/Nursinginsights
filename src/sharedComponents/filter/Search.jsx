@@ -1,6 +1,6 @@
 "use client";
 import * as React from "react";
-import Autocomplete, { autocompleteClasses } from "@mui/material/Autocomplete";
+import Autocomplete from "@mui/material/Autocomplete";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import modifyParams from "@/lib/fetch_data/modifySearchParams";
@@ -8,15 +8,15 @@ import { useRouter } from "next/navigation";
 import { useDeferredValue, useState } from "react";
 import getData from "@/lib/fetch_data/getData";
 
-export default function SearchField({ titleData, searchParams }) {
+export default function SearchField({ searchParams }) {
   return (
     <Stack spacing={5} sx={{ width: 300 }}>
-      <SearchInput titleData={titleData} searchParams={searchParams} />
+      <SearchInput searchParams={searchParams} />
     </Stack>
   );
 }
 
-function SearchInput({ titleData, searchParams }) {
+function SearchInput({ searchParams }) {
   const router = useRouter();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -25,13 +25,7 @@ function SearchInput({ titleData, searchParams }) {
     if (value === null) value = "";
     const search = modifyParams(searchParams, value, "title");
 
-    let newSearch;
-    if (searchParams?.title) {
-      newSearch = "?" + search;
-    } else {
-      newSearch = "?title=" + value + "&" + search;
-    }
-    router.push(newSearch);
+    router.push(search);
   }
   async function handleInputChange(input) {
     setLoading(true);
@@ -53,7 +47,7 @@ function SearchInput({ titleData, searchParams }) {
         },
       }}
       // options={titleData}
-      options={data}
+      options={deferredQuery}
       loading={loading}
       renderInput={(params) => (
         <TextField
