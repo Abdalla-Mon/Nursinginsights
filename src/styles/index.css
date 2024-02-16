@@ -434,6 +434,23 @@ footer p a {
   padding: 0 15px;
 }
 
+.categories_container {
+  padding: 20px 0;
+  flex-wrap: wrap;
+}
+.categories_container .category_item {
+  background-color: white;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+}
+.categories_container .category_item:hover {
+  background-color: var(--color_primary);
+  color: white;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

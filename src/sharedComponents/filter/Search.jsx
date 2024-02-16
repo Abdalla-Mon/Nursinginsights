@@ -29,7 +29,15 @@ function SearchInput({ searchParams }) {
   }
   async function handleInputChange(input) {
     setLoading(true);
-    const titleData = await getData(`/api/courses?title=${input.value}`);
+    const { category } = searchParams;
+    if (input.value === "") {
+      setData([]);
+      setLoading(false);
+      return;
+    }
+    const titleData = await getData(
+      `/api/courses?title=${input.value}&category=${category}`,
+    );
 
     setData(titleData.titleData);
     setLoading(false);

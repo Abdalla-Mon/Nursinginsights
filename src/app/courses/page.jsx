@@ -2,6 +2,7 @@ import getData from "@/lib/fetch_data/getData";
 import CourseCard from "@/sharedComponents/cards/courseCard/CourseCard";
 import Banner from "@/sharedComponents/banner/Banner";
 import Filter from "@/sharedComponents/filter/Filter";
+import PagePagination from "@/sharedComponents/pagination/Pagination";
 
 export default async function Courses({ searchParams }) {
   let { page, limit, title, category } = searchParams;
@@ -26,12 +27,7 @@ export default async function Courses({ searchParams }) {
   return (
     <section className={""}>
       <Banner>
-        <BannerContent
-          category={category}
-          length={result.total}
-          titleData={result.titleData}
-          searchParams={searchParams}
-        />
+        <BannerContent category={category} searchParams={searchParams} />
       </Banner>
       <div
         className={
@@ -46,6 +42,7 @@ export default async function Courses({ searchParams }) {
             return <CourseCard key={course.id} course={course} />;
           })}
         </div>
+        <PagePagination searchParams={searchParams} length={result.total} />
       </div>
     </section>
   );
