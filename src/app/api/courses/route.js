@@ -21,7 +21,6 @@ export async function GET(request) {
     const titleData = data.map((course) => course.courses.title);
     if (id) {
       const course = data.filter((course) => course.courses.id === id)[0];
-      console.log(course);
       return Response.json(course.courses);
     }
     let finalData = data.map((course) => {

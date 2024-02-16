@@ -33,7 +33,6 @@ function RenderTextField(props) {
     multi = false,
     type = "text",
   } = props;
-  console.log(props, "props");
   return (
     <TextField
       label={label}

@@ -4,10 +4,23 @@ import Banner from "@/sharedComponents/banner/Banner";
 import Filter from "@/sharedComponents/filter/Filter";
 
 export default async function Courses({ searchParams }) {
-  const category = searchParams.category;
-
-  const result = await getData(`/api/courses?category=${category || "all"}`);
-
+  let { page, limit, title, category } = searchParams;
+  if (!page) {
+    page = 1;
+  }
+  if (!limit) {
+    limit = 12;
+  }
+  if (!title) {
+    title = "";
+  }
+  if (!category) {
+    category = "all";
+  }
+  let path =
+    "/api/courses" +
+    `?page=${page}&limit=${limit}&title=${title}&category=${category}`;
+  const result = await getData(path);
   const data = result.data;
   if (!data) return <div>loading...</div>;
   return (
@@ -22,7 +35,7 @@ export default async function Courses({ searchParams }) {
       </Banner>
       <div
         className={
-          "container mx-auto section_padding mt-[-150px] relative z-[10000]"
+          "container mx-auto section_padding mt-[-150px] relative z-[10]"
         }
       >
         <div
@@ -41,7 +54,7 @@ function BannerContent({ category = "all", length, searchParams, titleData }) {
   category = category.replace(/_/g, " ");
 
   return (
-    <div className={"z-[100000000000] relative"}>
+    <div className={"z-[10] relative"}>
       <div className={"flex gap-5 items-center  "}>
         <h2 className={"capitalize font-bold"}>
           {category && category} Courses

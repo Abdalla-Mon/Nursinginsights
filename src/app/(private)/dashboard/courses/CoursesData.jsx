@@ -8,7 +8,9 @@ import CourseContent from "@/app/(private)/dashboard/courses/components/CoursesC
 
 export default async function CoursesData() {
   const [reValidate, setReValidate] = useState(false);
-  const data = await getData(`/api/courses`);
+  // const data = null;
+  const path = `/api/courses?page=1&limit=10`;
+  const data = await getData(path);
   if (!data) return "No data available at the moment. Please try again later.";
   return (
     <div>
