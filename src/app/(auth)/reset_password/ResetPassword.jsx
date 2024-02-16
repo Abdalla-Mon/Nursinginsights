@@ -1,7 +1,7 @@
 "use client";
 import { signUp } from "@/lib/auth/auth_wirh_email_and_pass/signup_with_email";
-import PrimaryBtn from "@/sharedComponents/Primary_btn";
-import { Input } from "@/sharedComponents/input";
+import PrimaryBtn from "@/sharedComponents/buttons/Primary_btn/Primary_btn";
+import { Input } from "@/sharedComponents/input/input";
 
 import { login } from "@/lib/auth/auth_wirh_email_and_pass/login_with_email";
 import Link from "next/link";
@@ -20,6 +20,7 @@ export function ResetPasswordCard() {
   const [formError, setFormError] = useState(null);
   const [isResetCodeSent, setIsResetCodeSent] = useState(false);
   const { setLoading } = useContext(AppLoadingContext);
+
   async function submit(data) {
     setLoading(true);
     const erorr = await resetPassword(data.sign_email);
@@ -31,6 +32,7 @@ export function ResetPasswordCard() {
     }
     setFormError(erorr);
   }
+
   return (
     <div className="login_card  ">
       <h3 className="text-center font-bold  mb-5" style={{ lineHeight: "1.2" }}>

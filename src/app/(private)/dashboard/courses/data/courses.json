@@ -1,0 +1,25 @@
+[
+  {
+    "id": "title",
+    "name": "Title",
+    "type": "text",
+    "required": true
+  },
+  {
+    "id": "id",
+    "name": "ID",
+    "type": "text",
+    "required": true
+  },
+  {
+    "id": "select",
+    "name": "Select",
+    "type": "select",
+    "required": true
+  },
+  {
+    "id": "image",
+    "name": "Image",
+    "type": "file"
+  }
+]

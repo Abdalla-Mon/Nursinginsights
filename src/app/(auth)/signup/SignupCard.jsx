@@ -1,7 +1,7 @@
 "use client";
 import { signUp } from "@/lib/auth/auth_wirh_email_and_pass/signup_with_email";
-import PrimaryBtn from "@/sharedComponents/Primary_btn";
-import { Input } from "@/sharedComponents/input";
+import PrimaryBtn from "@/sharedComponents/buttons/Primary_btn/Primary_btn";
+import { Input } from "@/sharedComponents/input/input";
 
 import { login } from "@/lib/auth/auth_wirh_email_and_pass/login_with_email";
 import Link from "next/link";
@@ -18,12 +18,13 @@ export function SignupCard() {
   const { errors } = formState;
   const [formError, setFormError] = useState("");
   const { setLoading } = useContext(AppLoadingContext);
+
   async function submit(data) {
     setLoading(true);
     const erorr = await signUp(
       data.sign_email,
       data.sign_password,
-      data.user_name
+      data.user_name,
     );
     setLoading(false);
     if (!erorr) {
@@ -31,6 +32,7 @@ export function SignupCard() {
     }
     setFormError(erorr);
   }
+
   return (
     <div className="login_card  ">
       <h3 className="text-center font-bold  mb-5" style={{ lineHeight: "1.2" }}>
@@ -52,6 +54,7 @@ export function SignupCard() {
     </div>
   );
 }
+
 export function SignUpInputs({ register, errors }) {
   return (
     <>

@@ -1,5 +1,7 @@
-export default async function getData(url) {
-    const res = await fetch(url);
-    const data = await res.json();
-    return data;
+import { localUrl } from "@/lib/fetch_data/url";
+
+export default async function getData(path) {
+  const res = await fetch(localUrl + path);
+  const data = await res.json();
+  return data;
 }
