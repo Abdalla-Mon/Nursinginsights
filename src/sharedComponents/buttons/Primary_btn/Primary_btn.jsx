@@ -19,7 +19,7 @@ const btnInitialValue = {
 const btnHoverValue = {
   backgroundPosition: "102% 0",
 };
-export default function PrimaryBtn({text, type, arrow, class_name = ""}) {
+export default function PrimaryBtn({text, type, arrow, class_name = "", setDelete}) {
   const [hover, setHover] = useState(false);
   return (
     <motion.button
@@ -30,6 +30,11 @@ export default function PrimaryBtn({text, type, arrow, class_name = ""}) {
       animate={hover ? btnHoverValue : btnInitialValue}
       type={type}
       transition={{duration: 0.3}}
+      onClick={() => {
+        if (setDelete) {
+          setDelete(false)
+        }
+      }}
     >
       <motion.div
         initial={!hover ? initialValue : hoverValue}
