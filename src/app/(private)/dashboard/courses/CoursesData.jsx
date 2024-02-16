@@ -4,7 +4,6 @@ import CourseCard from "@/sharedComponents/cards/courseCard/CourseCard";
 import { useState } from "react";
 import { Modal } from "@mui/material";
 
-import * as React from "react";
 import CourseContent from "@/app/(private)/dashboard/courses/components/CoursesContent/CoursesContent";
 
 export default async function CoursesData() {

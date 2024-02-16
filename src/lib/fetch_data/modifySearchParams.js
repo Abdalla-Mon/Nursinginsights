@@ -21,7 +21,6 @@ export default function modifyParams(
     }
     return param;
   });
-
   return search.join("&") + `#${scrollId}`;
 }
 
