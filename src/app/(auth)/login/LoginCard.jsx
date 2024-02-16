@@ -1,7 +1,7 @@
 "use client";
 
-import PrimaryBtn from "@/sharedComponents/Primary_btn";
-import { Input } from "@/sharedComponents/input";
+import PrimaryBtn from "@/sharedComponents/buttons/Primary_btn/Primary_btn";
+import { Input } from "@/sharedComponents/input/input";
 import Link from "next/link";
 import { MemberShip } from "../component/FormCard";
 import { AppLoadingContext } from "@/app/StorePorvider";
@@ -10,12 +10,14 @@ import { useForm } from "react-hook-form";
 import { login } from "@/lib/auth/auth_wirh_email_and_pass/login_with_email";
 import { signWithGoogle } from "@/lib/auth/google/google_login";
 import { useRouter } from "next/navigation";
+
 export function LoginCard() {
   const { formState, register, handleSubmit } = useForm();
   const { errors } = formState;
   const [formError, setFormError] = useState("");
   const { setLoading } = useContext(AppLoadingContext);
   const [redirect, setRedirect] = useState(false);
+
   async function submit(data) {
     setLoading(true);
     const erorr = await login(data.sign_email, data.sign_password);
@@ -53,6 +55,7 @@ export function LoginCard() {
     </div>
   );
 }
+
 export function LoginInputs({ register, errors }) {
   return (
     <>

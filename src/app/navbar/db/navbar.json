@@ -6,7 +6,7 @@
     },
     {
       "name": "courses",
-      "href": "/courses/",
+      "href": "/courses",
       "subfields": [
         "all",
         "first grade",
