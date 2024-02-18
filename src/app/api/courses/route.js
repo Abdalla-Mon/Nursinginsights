@@ -1,16 +1,16 @@
 import getSupabaseData from "@/lib/fetch_data/supabase/getSupabaseData";
 
 export async function GET(request) {
-  try {
     const tableName = "courses";
     const columnName = "courses";
     const { searchParams } = request.nextUrl;
 
-    const filterByCategory = searchParams.get("category");
-    const limit = searchParams.get("limit") || 12;
-    const title = searchParams.get("title") || "";
-    let page = searchParams.get("page") || 1;
-    const id = searchParams.get("id");
+  let filterByCategory = searchParams.get("category");
+  let limit = searchParams.get("limit");
+  let title = searchParams.get("title");
+    let page = searchParams.get("page") ;
+  let id = searchParams.get("id");
+  try {
     const data = await getSupabaseData(
       tableName,
       columnName,
@@ -39,11 +39,9 @@ export async function GET(request) {
 
     return Response.json({ data: finalData, total, titleData });
   } catch (error) {
-    console.log(
-      Response.json({ error: "An error occurred while fetching data" }),
-    );
 
-    return Response.json({ error: "An error occurred while fetching data" });
+
+    return Response.json({ error: error.message});
   }
 }
 
