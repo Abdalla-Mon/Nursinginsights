@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://nursinginsights.vercel.app/robots.txt</loc><lastmod>2024-02-18T13:10:05.546Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://nursinginsights.vercel.app/api/courses</loc><lastmod>2024-02-18T13:10:05.547Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://nursinginsights.vercel.app/profile</loc><lastmod>2024-02-18T13:10:05.547Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://nursinginsights.vercel.app/reset_password</loc><lastmod>2024-02-18T13:10:05.547Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://nursinginsights.vercel.app/signup</loc><lastmod>2024-02-18T13:10:05.547Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://nursinginsights.vercel.app/dashboard</loc><lastmod>2024-02-18T13:10:05.547Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://nursinginsights.vercel.app/dashboard/courses</loc><lastmod>2024-02-18T13:10:05.547Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://nursinginsights.vercel.app/books</loc><lastmod>2024-02-18T13:10:05.547Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://nursinginsights.vercel.app/nursingcareplans</loc><lastmod>2024-02-18T13:10:05.547Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://nursinginsights.vercel.app/login</loc><lastmod>2024-02-18T13:10:05.547Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://nursinginsights.vercel.app</loc><lastmod>2024-02-18T13:10:05.547Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://nursinginsights.vercel.app/api/courses</loc><lastmod>2024-02-18T13:29:02.187Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://nursinginsights.vercel.app/robots.txt</loc><lastmod>2024-02-18T13:29:02.188Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://nursinginsights.vercel.app/profile</loc><lastmod>2024-02-18T13:29:02.188Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://nursinginsights.vercel.app/reset_password</loc><lastmod>2024-02-18T13:29:02.188Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://nursinginsights.vercel.app/dashboard</loc><lastmod>2024-02-18T13:29:02.188Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://nursinginsights.vercel.app/signup</loc><lastmod>2024-02-18T13:29:02.188Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://nursinginsights.vercel.app/dashboard/courses</loc><lastmod>2024-02-18T13:29:02.188Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://nursinginsights.vercel.app/login</loc><lastmod>2024-02-18T13:29:02.188Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://nursinginsights.vercel.app/books</loc><lastmod>2024-02-18T13:29:02.188Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://nursinginsights.vercel.app/nursingcareplans</loc><lastmod>2024-02-18T13:29:02.188Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://nursinginsights.vercel.app</loc><lastmod>2024-02-18T13:29:02.188Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>

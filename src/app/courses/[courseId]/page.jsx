@@ -23,6 +23,10 @@ export async function generateMetadata({ params: { courseId } }) {
 export async function generateStaticParams() {
   let url = `/api/courses`;
   let courses = await getData(url);
+  if (!courses || !courses.data || !Array.isArray(courses.data)) {
+    console.error("No data available at the moment. Please try again later.");
+    return [];
+  }
   courses = courses.data.map((course) => ({
     params: {
       courseId: course.id.toString(),
