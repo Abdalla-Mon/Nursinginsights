@@ -14,7 +14,7 @@ export default function Categories() {
     { name: "Fourth Grade", id: "fourth_grade" },
   ];
   return (
-    <div className={"flex gap-5 flex-wrap py-3"}>
+    <div className={"categories_container flex gap-5 flex-wrap "}>
       {categories.map((category) => {
         return <CategoryItem key={category.id} category={category} />;
       })}
@@ -23,24 +23,15 @@ export default function Categories() {
 }
 function CategoryItem({ category }) {
   const { searchParams } = useContext(FilterContext);
-  const router = useRouter();
   function handleCategoryClick(id) {
     const search = modifyParams(searchParams, id, "category");
-    let newSearch;
-    if (searchParams?.category) {
-      newSearch = "?" + search;
-    } else {
-      newSearch = "?category=" + id + "&" + search;
-    }
-    return newSearch;
-    router.push(newSearch);
+
+    return search;
   }
   return (
     <Link
       href={handleCategoryClick(category.id)}
-      className={
-        "bg-white p-4 rounded-[50px] cursor-pointer shadow-lg font-bold"
-      }
+      className={" p-4 category_item cursor-pointer shadow-lg font-bold"}
     >
       {category.name}
     </Link>
