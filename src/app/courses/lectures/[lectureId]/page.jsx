@@ -1,4 +1,3 @@
-import CourseContent from "@/app/courses/[courseId]/CourseContent";
 import getData from "@/lib/fetch_data/getData";
 import LecturesContent from "@/app/courses/lectures/[lectureId]/LecturesContent";
 
@@ -23,23 +22,28 @@ export async function generateMetadata({ params: { lectureId } }) {
 export async function generateStaticParams() {
   let url = `/api/courses`;
   let courses = await getData(url);
-  if (!courses || !courses.data || !Array.isArray(courses.data)) {
-    console.error("No data available at the moment. Please try again later.");
-    return [];
-  }
-  courses = courses.data.map((course) => ({
+  return courses.data.map((course) => ({
     params: {
-      courseId: course.id.toString(),
+      courseId: course.id,
     },
   }));
-  return courses;
 }
 
 export default async function Course({ params: { lectureId }, searchParams }) {
   let { page, limit, title } = searchParams;
+  if (!page) {
+    page = 1;
+  }
+  if (!limit) {
+    limit = 12;
+  }
+  if (!title) {
+    title = "";
+  }
+
   const path = `/api/courses/lectures/${lectureId}`;
   const result = await getData(
-    path + `?page=${page || 1}&limit=${limit || 9}&title=${title || ""}`,
+    path + `?page=${page}&limit=${limit}&title=${title}`,
   );
   if (!result) return <div>loading...</div>;
   const data = result.lectures;
