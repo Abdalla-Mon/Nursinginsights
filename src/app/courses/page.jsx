@@ -1,3 +1,4 @@
+"use client"
 import getData from "@/lib/fetch_data/getData";
 import CourseCard from "@/sharedComponents/cards/courseCard/CourseCard";
 import Banner from "@/sharedComponents/banner/Banner";
@@ -16,12 +17,13 @@ export default async function Courses({ searchParams }) {
     title = "";
   }
   if (!category) {
-    category = "all";
+    category = "";
   }
   let path =
     "/api/courses" +
     `?page=${page}&limit=${limit}&title=${title}&category=${category}`;
   const result = await getData(path);
+  console.log(result);
   if (!result) return <div>loading...</div>;
   const data = result.data;
   return (
