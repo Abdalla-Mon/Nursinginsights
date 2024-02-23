@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Categories() {
   const categories = [
-    { name: "All Courses", id: "all" },
+    { name: "All Courses", id: "" },
     ,
     { name: "First Grade", id: "first_grade" },
     { name: "Second Grade", id: "second_grade" },
@@ -28,10 +28,12 @@ function CategoryItem({ category }) {
 
     return search;
   }
+  const condition = searchParams.category === category.id;
   return (
     <Link
       href={handleCategoryClick(category.id)}
       className={" p-4 category_item cursor-pointer shadow-lg font-bold"}
+      style={{ backgroundColor: condition&& "#2f57ef" ,color: condition&& "white" }}
     >
       {category.name}
     </Link>

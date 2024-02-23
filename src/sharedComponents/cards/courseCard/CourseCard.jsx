@@ -1,11 +1,12 @@
 import Link from "next/link";
+import PrimaryBtn from "@/sharedComponents/buttons/Primary_btn/Primary_btn";
 
 export default function CourseCard({ course, dashboard, children }) {
   const category = course.category.replace(/_/g, " ");
   return (
     <div className={"course_card p-5  w-full mx-auto"}>
       <div className={"w-full h-[200px] card_image "}></div>
-      <h3 className={"card_title"}>{course.title}</h3>
+      <h4 className={"card_title"}>{course.title}</h4>
 
       <h6>
         {dashboard && children}
@@ -26,14 +27,16 @@ export default function CourseCard({ course, dashboard, children }) {
 }
 function RenderLectureLink({ dashboard, course }) {
   const href = dashboard ? "/dashboard/courses/" : "/courses/lectures/";
-  return (
+  const text=      dashboard ? "Edit Lectures" : "Go to lectures"
+
+    return (
     <Link
       href={href + course.id + "?page=1&limit=12"}
-      className={
-        "course_button  text-white  flex items-center rounded-md w-fit text-center mt-5"
-      }
+      // className={
+      //   // "course_button  text-white  flex items-center rounded-md w-fit text-center mt-5"
+      // }
     >
-      {dashboard ? "Edit Lectures" : "Go to lectures"}
+        <PrimaryBtn text={text} arrow={true} />
     </Link>
   );
 }

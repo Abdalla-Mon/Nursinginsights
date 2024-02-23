@@ -359,7 +359,7 @@ footer p a {
 .course_card .card_image {
   width: 100%;
   height: 12.5rem;
-  background: var(--main_gradient);
+  background: linear-gradient(180deg, var(--color_secondary) 0%, var(--color_primary) 100%);
   border-radius: 0.5rem;
   margin-bottom: 1rem;
 }
@@ -378,7 +378,7 @@ footer p a {
   border-radius: 0.375rem;
 }
 .course_card .course_details {
-  color: #3b82f6;
+  color: #4f0fc2;
   transition: 0.3s;
   position: relative;
 }
@@ -387,7 +387,7 @@ footer p a {
   position: absolute;
   width: 100%;
   height: 2px;
-  background: var(--main_gradient);
+  background: linear-gradient(180deg, var(--color_secondary) 0%, #7b8bce 100%);
   bottom: 0;
   left: 0;
   transform: scaleX(0);
@@ -398,7 +398,7 @@ footer p a {
   transform: scaleX(1);
 }
 .course_card .btn_container {
-  margin-top: 1.5rem;
+  margin-top: 1.8rem;
 }
 .course_card .btn_container .course_button {
   display: inline-block;
@@ -406,13 +406,13 @@ footer p a {
   border-radius: 0.375rem;
   width: fit-content;
   text-align: center;
-  background: var(--main_gradient);
+  background: linear-gradient(180deg, var(--color_secondary) 0%, var(--color_primary) 100%);
   color: white;
   text-decoration: none;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s ease;
 }
 .course_card .btn_container .course_button:hover {
-  background-color: #2563eb;
+  box-shadow: 0 0.5rem 1.5rem #9e77ff;
 }
 
 .banner::after {
@@ -428,7 +428,7 @@ footer p a {
 
 .shared_banner {
   padding: 60px 0px 120px;
-  background: var(--main_gradient);
+  background: linear-gradient(270deg, var(--color_secondary) 0%, var(--color_primary) 100%);
   min-height: 400px;
 }
 .shared_banner .container {

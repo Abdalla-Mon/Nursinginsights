@@ -15,7 +15,7 @@ export default async function Courses({ searchParams }) {
   if (!title) {
     title = "";
   }
-  if (!category) {
+  if (!category||category==="all") {
     category = "";
   }
   let path =
