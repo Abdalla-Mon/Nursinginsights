@@ -28,12 +28,12 @@ function CategoryItem({ category }) {
 
     return search;
   }
-  const condition = searchParams.category === category.id;
+  const condition = searchParams.category === category.id||(!searchParams.category && category.id === "");
   return (
     <Link
       href={handleCategoryClick(category.id)}
-      className={" p-4 category_item cursor-pointer shadow-lg font-bold"}
-      style={{ backgroundColor: condition&& "#2f57ef" ,color: condition&& "white" }}
+      className={" category_item cursor-pointer  " + (condition && "active")}
+      // style={{ backgroundColor: condition&& "#1AB69D" ,color: condition&& "white" }}
     >
       {category.name}
     </Link>

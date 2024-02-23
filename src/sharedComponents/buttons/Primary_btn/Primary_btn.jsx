@@ -13,21 +13,15 @@ const hoverValue = {
   opacity: [0, 0.5, 1],
   paddingLeft: 5,
 };
-const btnInitialValue = {
-  backGroundPosition: "100% 0",
-};
-const btnHoverValue = {
-  backgroundPosition: "102% 0",
-};
+
 export default function PrimaryBtn({text, type, arrow, class_name = "", setDelete}) {
   const [hover, setHover] = useState(false);
   return (
     <motion.button
-      className={" w-full primary_btn " + class_name}
+      className={" primary_btn " + class_name}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      initial={!hover ? btnInitialValue : btnHoverValue}
-      animate={hover ? btnHoverValue : btnInitialValue}
+
       type={type}
       transition={{duration: 0.3}}
       onClick={() => {
@@ -39,9 +33,12 @@ export default function PrimaryBtn({text, type, arrow, class_name = "", setDelet
       <motion.div
         initial={!hover ? initialValue : hoverValue}
         animate={hover ? hoverValue : initialValue}
-        className="gap-1 centerd"
+        className="gap-1 centerd "
       >
+        <span className={"text"}>
+
         {text}
+        </span>
         {arrow && <FaArrowRight/>}
       </motion.div>
     </motion.button>

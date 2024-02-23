@@ -15,9 +15,10 @@ export default function PagePagination({ searchParams, length }) {
   }
   return (
     <Pagination
+          className={" pagination  w-fit mx-auto"}
       count={numberOfPages}
-      variant="outlined"
-      shape="rounded"
+      // shape="rounded"
+          size={"large"}
       onChange={handleChange}
       page={+page}
       showFirstButton

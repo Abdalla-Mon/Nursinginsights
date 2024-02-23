@@ -12,8 +12,8 @@ export default function Filter({
   return (
     <FilterContext.Provider value={{ searchParams, length }}>
       <div>
-        <SearchField titleData={titleData} searchParams={searchParams} />
         {category && <Categories />}
+        <SearchField titleData={titleData} searchParams={searchParams} />
       </div>
     </FilterContext.Provider>
   );

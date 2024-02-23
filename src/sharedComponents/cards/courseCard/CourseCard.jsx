@@ -1,20 +1,25 @@
 import Link from "next/link";
 import PrimaryBtn from "@/sharedComponents/buttons/Primary_btn/Primary_btn";
+import Image from "next/image";
 
 export default function CourseCard({ course, dashboard, children }) {
   const category = course.category.replace(/_/g, " ");
   return (
     <div className={"course_card p-5  w-full mx-auto"}>
-      <div className={"w-full h-[200px] card_image "}></div>
+      <div className={"w-full h-[300px] card_image "}>
+          <Image width={300} height={300} src={"/card/card1.jpg"} className={"w-full h-full"} />
+          {!dashboard && (
+                <Link className={""} href={"/courses/" + course.id}>
+                    <PrimaryBtn arrow={true}  class_name={" course_details "} text={"Course details"}/>
+                </Link>
+          )}
+
+      </div>
       <h4 className={"card_title"}>{course.title}</h4>
 
       <h6>
         {dashboard && children}
-        {!dashboard && (
-          <Link className={"course_details"} href={"/courses/" + course.id}>
-            Read course details
-          </Link>
-        )}
+
       </h6>
       <div className={"flex justify-between items-center btn_container"}>
         <RenderLectureLink dashboard={dashboard} course={course} />

@@ -91,6 +91,7 @@ export function Item({item, pc, expanded, setExpanded}) {
 }
 
 function SubfieldsContainer({item_data, expanded}) {
+  const cat= (subitem)=> "?category=" + subitem.replace(" ", "_")
   return (
     <motion.div
       className="w-full overflow-hidden sub_list_item  "
@@ -110,7 +111,7 @@ function SubfieldsContainer({item_data, expanded}) {
             <SubItem
               item={subitem}
               key={subitem}
-              href={item_data.href + "?category=" + subitem.replace(" ", "_")}
+              href={item_data.href +( subitem!=="all"? cat(subitem):"")}
               padding={"py-[2px]"}
             />{" "}
           </ListItem>

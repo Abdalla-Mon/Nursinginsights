@@ -19,7 +19,7 @@ import { useRouter } from "next/navigation";
 export default function SearchAppBar() {
   const { authState } = use_selector((state) => state.auth);
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const menuId = "primary-search-account-menu";
+  const menuId = "primary-menu";
 
   const [state, setState] = React.useState({
     left: false,
@@ -42,7 +42,7 @@ export default function SearchAppBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
         position="static"
-        className="bg-[--primary_bg] text-[--body_text] navbar"
+        className="bg-[--secondary_bg] text-[--body_text] navbar"
       >
         <Drawer toggleDrawer={toggleDrawer} state={state} />
         <Toolbar>

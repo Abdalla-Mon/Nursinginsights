@@ -45,6 +45,7 @@ function SearchInput({ searchParams }) {
   return (
     <Autocomplete
       disablePortal
+      className={"search_input"}
       onChange={(event, value) => {
         handleChange(event, value);
       }}
@@ -54,7 +55,6 @@ function SearchInput({ searchParams }) {
           // color: "white",
         },
       }}
-      // options={titleData}
       options={deferredQuery}
       loading={loading}
       renderInput={(params) => (
