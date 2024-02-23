@@ -2,7 +2,6 @@
 import Link from "next/link";
 import { List, ListItem, ListItemButton } from "@mui/material";
 import { motion } from "framer-motion";
-import { RiMenu2Line } from "react-icons/ri";
 import * as React from "react";
 
 const menuItems = [
@@ -12,7 +11,7 @@ const menuItems = [
 export default function DashMenu({}) {
   return (
     <>
-      <Menu />
+      <MobileMenu />
     </>
   );
 }
@@ -25,7 +24,8 @@ export function MobileMenu({ drawer, setDrawer }) {
   };
   return (
     <motion.div
-      className={"tab:hidden w-full h-full absolute top-0 left-0  "}
+      className={" w-full h-full absolute t  "}
+      style={{top:"12px" ,left:"12px"}}
       animate={drawer ? { zIndex: 10 } : { zIndex: -100, opacity: 0 }}
       onClick={() => setDrawer(false)}
       transition={
@@ -35,10 +35,10 @@ export function MobileMenu({ drawer, setDrawer }) {
       }
     >
       <motion.div
-        className={" tab:hidden z-40 relative w-[300px]  overflow-hidden"}
+        className={"  z-40 relative w-[300px]  overflow-hidden"}
         {...animationProps}
       >
-        <Menu style={"tab:hidden"} />
+        <Menu style={""} />
       </motion.div>
     </motion.div>
   );
@@ -65,7 +65,7 @@ function Menu({ style = "hidden tab:block" }) {
   );
 }
 
-function MenuItem({ name, icon, path }) {
+function MenuItem({ name, path }) {
   return (
     <ListItem disablePadding className={"list_item text-[16px]"}>
       <Link href={"/dashboard/" + path} className={"flex w-full pc_item"}>

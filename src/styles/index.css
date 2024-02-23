@@ -1,38 +1,17 @@
 :root {
-  --primary_bg: #ffffff;
-  --secondary_bg: #f9f9ff;
-  --body_text: #6b7385;
-  --heading_text: #192335;
+  --primary_bg: #FFF1E7;
+  --secondary_bg: #E8F6F1;
+  --body_text: #808080;
+  --heading_text: #181818;
   --shadow_1: 0px 6px 34px rgba(215, 216, 222, 0.41);
   --shadow_2: 0 15px 34px 0 rgba(175, 181, 204, 0.32);
-  --color_primary: #2f57ef;
-  --color_primary_opacity: #2f57ef21;
-  --color_secondary: #b966e7;
-  --main_gradient:linear-gradient(to right, #3b82f6, #2563eb);
-  --gradient_1: linear-gradient(rgb(255, 255, 255) 0%, rgb(239, 241, 255) 100%);
-  --gradient_2: linear-gradient(
-    0deg,
-    rgb(255, 255, 255) 0%,
-    rgb(240, 242, 255) 100%
-  );
-  --gradient_3: linear-gradient(90deg, #8da9fc 0%, #b48dd5 100%);
-  --gradient_4: linear-gradient(180deg, #eff1ff 0%, #ffffff 100%);
-  --gradient_5: linear-gradient(rgb(239, 241, 255) 0%, rgb(239, 241, 255) 100%);
-  --gradient_6: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0.15),
-    rgba(251, 199, 226, 0.15),
-    rgba(220, 217, 254, 0.15)
-  );
-  --gradient_7: linear-gradient(
-    218.15deg,
-    var(--color_secondary) 0%,
-    var(--color_primary) 100%
-  );
-  --gradient_8: linear-gradient(270deg, #9e77ff 0%, #4460ff 100%);
-  --gradient_9: linear-gradient(180deg, #6827ff 0%, #e3f0ff 100%);
-  --primary_transition: 0.3s;
-  --border_color: #e6e3f1;
+  --color_primary: #1AB69D;
+  --color_primary_alt: #31B978;
+  --color_secondary: #EE4A62;
+  --color_secondary_alt: #ff5b5c;
+  --color_tertiary: #f8b81f;
+  --primary_gradient:linear-gradient(-90deg, var(--edublink-color-primary-alt) 0%, var(--edublink-color-primary) 100%);
+  --secondary_gradient:linear-gradient(-90deg, var(--edublink-color-primary) 0%, var(--edublink-color-primary-alt) 100%);
 }
 
 .nav_icons_container button {
@@ -196,7 +175,7 @@ footer p a {
 }
 
 .dash_menu {
-  background: linear-gradient(-145deg, #cfa2e8, #637fea);
+  border: 5px solid var(--color_primary) !important;
   box-shadow: var(--shadow_1);
   margin-bottom: 1rem;
   position: relative;
@@ -205,21 +184,6 @@ footer p a {
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
-}
-.dash_menu::before {
-  content: "";
-  position: absolute;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-  top: 4px;
-  left: 4px;
-  width: calc(100% - 8px);
-  height: calc(100% - 8px);
-  background: white;
-  z-index: 1;
 }
 .dash_menu li {
   position: relative;
@@ -280,7 +244,7 @@ footer p a {
 
 .primary_btn {
   background-size: 300% 100%;
-  background-image: linear-gradient(to right, var(--color_primary), var(--color_secondary), var(--color_secondary), var(--color_primary));
+  background-color: var(--color_primary);
   color: white;
   padding: 12px;
   border-radius: 6px;
@@ -352,16 +316,18 @@ footer p a {
   box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
   transition: 0.3s ease;
   max-width: 400px;
+  position: relative;
 }
 .course_card:hover {
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2);
 }
 .course_card .card_image {
   width: 100%;
-  height: 12.5rem;
-  background: var(--main_gradient);
+  height: 300px;
+  background: var(--color_primary);
   border-radius: 0.5rem;
   margin-bottom: 1rem;
+  position: relative;
 }
 .course_card .card_title {
   font-weight: bold;
@@ -370,35 +336,50 @@ footer p a {
 .course_card .card_category {
   font-size: 1rem;
   font-weight: 500;
-  color: #4B5563;
+  color: var(--color_primary);
   margin-top: 0.5rem;
   display: inline-block;
-  background-color: #E5E7EB;
+  background-color: #d6ebe5;
   padding: 0.25rem 0.5rem;
   border-radius: 0.375rem;
+  position: absolute;
+  left: 30px;
+  top: 24px;
 }
 .course_card .course_details {
-  color: #3b82f6;
-  transition: 0.3s;
-  position: relative;
-}
-.course_card .course_details::before {
-  content: "";
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--color_secondary) !important;
+  border: 4px solid white;
   position: absolute;
-  width: 100%;
-  height: 2px;
-  background: var(--main_gradient);
-  bottom: 0;
-  left: 0;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
+  bottom: -25px;
+  right: 15px;
+  animation: notHoverAnimation 0.5s ease forwards;
 }
-.course_card .course_details:hover::before {
-  transform: scaleX(1);
+.course_card .course_details svg {
+  width: 1.3rem;
+  height: 1.3rem;
+  fill: white;
+}
+.course_card .course_details:hover {
+  background-color: var(--color_secondary);
+  border-color: white;
+  overflow: hidden;
+  animation: hoverAnimation 0.5s ease forwards;
+}
+.course_card .course_details:hover svg {
+  fill: white;
+}
+.course_card .course_details:hover .text {
+  display: block;
+}
+.course_card .course_details .text {
+  transition-delay: 0.5s;
+  display: none;
 }
 .course_card .btn_container {
-  margin-top: 1.5rem;
+  margin-top: 1.8rem;
 }
 .course_card .btn_container .course_button {
   display: inline-block;
@@ -406,29 +387,36 @@ footer p a {
   border-radius: 0.375rem;
   width: fit-content;
   text-align: center;
-  background: var(--main_gradient);
   color: white;
   text-decoration: none;
-  transition: background-color 0.3s ease;
 }
 .course_card .btn_container .course_button:hover {
-  background-color: #2563eb;
+  box-shadow: 0 0 3px 2px var(--color_primary);
 }
 
-.banner::after {
-  content: "";
-  background: linear-gradient(white 0%, rgba(255, 255, 255, 0.1) 100%);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
+@keyframes hoverAnimation {
+  0% {
+    width: 60px;
+    border-radius: 50%;
+  }
+  100% {
+    width: 200px;
+    border-radius: 12px;
+  }
 }
-
+@keyframes notHoverAnimation {
+  0% {
+    width: 200px;
+    border-radius: 12px;
+  }
+  100% {
+    width: 60px;
+    border-radius: 50%;
+  }
+}
 .shared_banner {
   padding: 60px 0px 120px;
-  background: var(--main_gradient);
+  background: var(--secondary_bg);
   min-height: 400px;
 }
 .shared_banner .container {
@@ -438,23 +426,63 @@ footer p a {
 .categories_container {
   padding: 20px 0;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .categories_container .category_item {
-  background-color: white;
-  border-radius: 50px;
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  -ms-border-radius: 50px;
-  -o-border-radius: 50px;
+  color: var(--body_text);
+  position: relative;
+  transition: 0.5s;
+  padding: 6px 0;
 }
-.categories_container .category_item:hover {
-  background-color: var(--color_primary);
+.categories_container .category_item::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #d6ebe5;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  transform: scale(0);
+  transition: transform 0.5s;
+}
+.categories_container .category_item:hover, .categories_container .category_item.active {
+  color: var(--color_primary);
+  padding: 6px 12px;
+}
+.categories_container .category_item:hover::before, .categories_container .category_item.active::before {
+  transform: scale(1);
+}
+
+.search_input {
+  background-color: #F5F5F5;
+}
+.search_input label.Mui-focused {
+  color: var(--color_primary) !important;
+}
+.search_input.Mui-focused fieldset {
+  border-color: var(--color_primary) !important;
+}
+
+.pagination {
+  margin-top: 40px;
+}
+.pagination button:hover {
+  background-color: var(--color_secondary) !important;
+  opacity: 0.5;
+}
+.pagination .Mui-selected {
+  background-color: var(--color_secondary) !important;
   color: white;
 }
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+body {
+  overflow-x: hidden;
+}
+
 .responsive_height {
   min-height: calc(100vh - 64px);
 }
@@ -621,6 +649,11 @@ h1,
 h2,
 h3 {
   color: var(--heading_text);
+}
+
+.highlighted {
+  color: var(--color_primary);
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=index.css.map */

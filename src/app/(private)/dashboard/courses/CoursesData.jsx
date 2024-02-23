@@ -5,23 +5,48 @@ import { useState } from "react";
 import { Modal } from "@mui/material";
 
 import CourseContent from "@/app/(private)/dashboard/courses/components/CoursesContent/CoursesContent";
+import Banner, {BannerContent} from "@/sharedComponents/banner/Banner";
+import DashMenu from "@/app/(private)/dashboard/DashboardMenu/DashMenu";
+import CreateModal from "@/app/(private)/dashboard/courses/components/CreateFormModal/CreateModal";
 
-export default async function CoursesData() {
+export default async function CoursesData({ searchParams}) {
   const [reValidate, setReValidate] = useState(false);
-  // const data = null;
-  const path = `/api/courses?page=1&limit=10`;
-  const data = await getData(path);
+    let { page, limit, title, category } = searchParams;
+    if (!page) {
+        page = 1;
+    }
+    if (!limit) {
+        limit = 12;
+    }
+    if (!title) {
+        title = "";
+    }
+    if (!category||category==="all") {
+        category = "";
+    }
+    let path =
+          "/api/courses" +
+          `?page=${page}&limit=${limit}&title=${title}&category=${category}`;
+    const data = await getData(path);
   if (!data) return "No data available at the moment. Please try again later.";
   return (
-    <div>
-      <h1>Courses</h1>
-      <div className={"grid tab:grid-cols-2 xl:grid-cols-3 gap-4"}>
+    <div className={" "}>
+        <Banner>
+            <CreateModal setReValidate={setReValidate} />
+            <BannerContent category={category} searchParams={searchParams} length={data.total}/>
+
+            <DashMenu />
+        </Banner>
+<div className={"container mx-auto mt-[-150px] section_padding"}>
+
+        <div className={"grid tab:grid-cols-2 lg:grid-cols-3 gap-4"}>
         {data.data.map((course) => (
           <CourseCard course={course} key={course.id} dashboard={true}>
             <EditModal course={course} setReValidate={setReValidate} />
           </CourseCard>
         ))}
       </div>
+</div>
     </div>
   );
 }
@@ -33,7 +58,7 @@ function EditModal({ course, setReValidate }) {
     <div>
       <button
         onClick={handleOpen}
-        className={"cursor-pointer font-bold text-blue-500"}
+        className={"cursor-pointer font-bold highlighted text-xl"}
       >
         Edit The course
       </button>

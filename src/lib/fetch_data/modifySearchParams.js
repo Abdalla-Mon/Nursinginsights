@@ -5,10 +5,12 @@ export default function modifyParams(
   changePage = false,
   scrollId = "",
 ) {
-  if (value === null) value = "";
 
   const search = Object.keys(searchParams).map((param) => {
     if (param.includes(modifiedParam)) {
+      if (value === "") {
+        return null;
+      }
       return `${modifiedParam}=${value}`;
     }
     if (changePage && param.includes("page")) {

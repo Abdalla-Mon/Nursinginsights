@@ -1,23 +1,12 @@
 @use "../../utils/varibales" as *;
 
 .dash_menu {
-    background: linear-gradient(-145deg, #cfa2e8, #637fea);
+    border:5px solid var(--color_primary) !important;
     box-shadow: var(--shadow_1);
     margin-bottom: 1rem;
     position: relative;
     @include border_radius(10px);
 
-    &::before {
-        content: "";
-        position: absolute;
-        @include border_radius(10px);
-        top: 4px;
-        left: 4px;
-        width: calc(100% - 8px);
-        height: calc(100% - 8px);
-        background: white;
-        z-index: 1;
-    }
 
     li {
         position: relative;

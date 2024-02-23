@@ -5,18 +5,20 @@ import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import modifyParams from "@/lib/fetch_data/modifySearchParams";
 import { useRouter } from "next/navigation";
-import { useDeferredValue, useState } from "react";
+import {useContext, useDeferredValue, useState} from "react";
 import getData from "@/lib/fetch_data/getData";
+import {FilterContext} from "@/sharedComponents/filter/Filter";
 
-export default function SearchField({ searchParams }) {
+export default function SearchField() {
   return (
     <Stack spacing={5} sx={{ width: 300 }}>
-      <SearchInput searchParams={searchParams} />
+      <SearchInput  />
     </Stack>
   );
 }
 
-function SearchInput({ searchParams }) {
+function SearchInput() {
+  const { searchParams } = useContext(FilterContext);
   const router = useRouter();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -45,6 +47,7 @@ function SearchInput({ searchParams }) {
   return (
     <Autocomplete
       disablePortal
+      className={"search_input"}
       onChange={(event, value) => {
         handleChange(event, value);
       }}
@@ -54,7 +57,6 @@ function SearchInput({ searchParams }) {
           // color: "white",
         },
       }}
-      // options={titleData}
       options={deferredQuery}
       loading={loading}
       renderInput={(params) => (

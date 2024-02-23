@@ -1,7 +1,7 @@
 "use client";
 import {motion} from "framer-motion";
 import {useState} from "react";
-import {FaArrowRight, FaArrowLeft} from "react-icons/fa";
+import {FaArrowRight} from "react-icons/fa";
 
 const initialValue = {
   flexDirection: "row",
@@ -13,35 +13,36 @@ const hoverValue = {
   opacity: [0, 0.5, 1],
   paddingLeft: 5,
 };
-const btnInitialValue = {
-  backGroundPosition: "100% 0",
-};
-const btnHoverValue = {
-  backgroundPosition: "102% 0",
-};
-export default function PrimaryBtn({text, type, arrow, class_name = "", setDelete}) {
+
+export default function PrimaryBtn({text, type, arrow, class_name = "", setDelete, setModal}) {
   const [hover, setHover] = useState(false);
   return (
     <motion.button
-      className={" w-full primary_btn " + class_name}
+      className={" primary_btn " + class_name}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      initial={!hover ? btnInitialValue : btnHoverValue}
-      animate={hover ? btnHoverValue : btnInitialValue}
+
       type={type}
       transition={{duration: 0.3}}
+
       onClick={() => {
         if (setDelete) {
           setDelete(false)
+        }
+        if (setModal) {
+          setModal(true);
         }
       }}
     >
       <motion.div
         initial={!hover ? initialValue : hoverValue}
         animate={hover ? hoverValue : initialValue}
-        className="gap-1 centerd"
+        className="gap-1 centerd "
       >
+        <span className={"text"}>
+
         {text}
+        </span>
         {arrow && <FaArrowRight/>}
       </motion.div>
     </motion.button>

@@ -4,6 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
+body{
+    overflow-x: hidden;
+}
 
 .responsive_height {
     min-height: calc(100vh - 64px);
@@ -143,4 +146,8 @@ h1,
 h2,
 h3 {
     color: var(--heading_text);
+}
+.highlighted{
+    color: var(--color_primary);
+    font-weight: bold;
 }

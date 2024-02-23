@@ -5,9 +5,9 @@ import CreateBtn from "@/app/(private)/dashboard/courses/components/CreateBtn/Cr
 import CreateForm from "@/app/(private)/dashboard/courses/components/CreateFormModal/CreateForm/CreateForm";
 
 import courses from "../../data/courses.json";
-import SecondaryBtn from "@/sharedComponents/buttons/SecondaryBtn/SecondaryBtn";
 import { RiMenu2Line } from "react-icons/ri";
 import { MobileMenu } from "@/app/(private)/dashboard/DashboardMenu/DashMenu";
+import PrimaryBtn from "@/sharedComponents/buttons/Primary_btn/Primary_btn";
 
 export default function CreateModal({ setReValidate, card }) {
   const [open, setOpen] = React.useState(false);
@@ -15,16 +15,16 @@ export default function CreateModal({ setReValidate, card }) {
   const handleClose = () => setOpen(false);
   const [drawer, setDrawer] = React.useState(false);
   return (
-    <div>
-      <div className={"flex items-center justify-between gap-5"}>
+    <div >
+      <div className={"flex items-center justify-between gap-5 max-w-full p-3 "}>
         <MobileMenu setDrawer={setDrawer} drawer={drawer} />
         <RiMenu2Line
-          className={"tab:hidden text-3xl cursor-pointer"}
+          className={" text-3xl cursor-pointer"}
           onClick={() => setDrawer(true)}
         />
         {card && <CreateBtn handleOpen={handleOpen} />}
         {!card && (
-          <SecondaryBtn
+          <PrimaryBtn
             text={"Create a new course"}
             arrow={true}
             setModal={setOpen}
