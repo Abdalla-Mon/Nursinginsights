@@ -16,14 +16,14 @@ export default async function Courses({ searchParams }) {
     title = "";
   }
   if (!category) {
-    category = "all";
+    category = "";
   }
   let path =
     "/api/courses" +
     `?page=${page}&limit=${limit}&title=${title}&category=${category}`;
   const result = await getData(path);
+  if (!result) return <div>loading...</div>;
   const data = result.data;
-  if (!data) return <div>loading...</div>;
   return (
     <section className={""}>
       <Banner>
