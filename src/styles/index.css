@@ -175,7 +175,7 @@ footer p a {
 }
 
 .dash_menu {
-  background: linear-gradient(-145deg, #cfa2e8, #637fea);
+  border: 5px solid var(--color_primary) !important;
   box-shadow: var(--shadow_1);
   margin-bottom: 1rem;
   position: relative;
@@ -184,21 +184,6 @@ footer p a {
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
-}
-.dash_menu::before {
-  content: "";
-  position: absolute;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-  top: 4px;
-  left: 4px;
-  width: calc(100% - 8px);
-  height: calc(100% - 8px);
-  background: white;
-  z-index: 1;
 }
 .dash_menu li {
   position: relative;
@@ -338,7 +323,7 @@ footer p a {
 }
 .course_card .card_image {
   width: 100%;
-  height: 250px;
+  height: 300px;
   background: var(--color_primary);
   border-radius: 0.5rem;
   margin-bottom: 1rem;
@@ -469,6 +454,9 @@ footer p a {
   transform: scale(1);
 }
 
+.search_input {
+  background-color: #F5F5F5;
+}
 .search_input label.Mui-focused {
   color: var(--color_primary) !important;
 }
@@ -491,6 +479,10 @@ footer p a {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+body {
+  overflow-x: hidden;
+}
+
 .responsive_height {
   min-height: calc(100vh - 64px);
 }
@@ -657,6 +649,11 @@ h1,
 h2,
 h3 {
   color: var(--heading_text);
+}
+
+.highlighted {
+  color: var(--color_primary);
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=index.css.map */

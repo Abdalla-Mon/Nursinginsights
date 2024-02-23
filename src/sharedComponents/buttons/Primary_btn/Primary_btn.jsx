@@ -1,7 +1,7 @@
 "use client";
 import {motion} from "framer-motion";
 import {useState} from "react";
-import {FaArrowRight, FaArrowLeft} from "react-icons/fa";
+import {FaArrowRight} from "react-icons/fa";
 
 const initialValue = {
   flexDirection: "row",
@@ -14,7 +14,7 @@ const hoverValue = {
   paddingLeft: 5,
 };
 
-export default function PrimaryBtn({text, type, arrow, class_name = "", setDelete}) {
+export default function PrimaryBtn({text, type, arrow, class_name = "", setDelete, setModal}) {
   const [hover, setHover] = useState(false);
   return (
     <motion.button
@@ -24,9 +24,13 @@ export default function PrimaryBtn({text, type, arrow, class_name = "", setDelet
 
       type={type}
       transition={{duration: 0.3}}
+
       onClick={() => {
         if (setDelete) {
           setDelete(false)
+        }
+        if (setModal) {
+          setModal(true);
         }
       }}
     >

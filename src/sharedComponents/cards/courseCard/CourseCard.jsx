@@ -15,12 +15,12 @@ export default function CourseCard({ course, dashboard, children }) {
           )}
 
       </div>
-      <h4 className={"card_title"}>{course.title}</h4>
+      <h3 className={"card_title"}>{course.title}</h3>
 
-      <h6>
+      <div className={"text-xl"}>
         {dashboard && children}
 
-      </h6>
+      </div>
       <div className={"flex justify-between items-center btn_container"}>
         <RenderLectureLink dashboard={dashboard} course={course} />
         <h4>
